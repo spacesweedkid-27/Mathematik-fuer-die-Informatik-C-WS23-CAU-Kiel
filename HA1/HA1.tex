@@ -49,4 +49,19 @@
     Es gilt: \(\phi(-3) = 9 > \phi(-2) = 0 > \phi(0) = -6 < \phi(\frac{3}{2}) = 0 < \phi(2) = 4\).\\ 
     Die Behauptung folgt aus dem Monotoniekriterium. \qed
 \subsection*{A2}
+\textbf{Vor.:} $f : \mathbb{R}_{\neq 0} \rightarrow \mathbb{R}$ ist differenzierbar. Es gilt $f'(x) > 0$ für alle $x \in \mathbb{R}_{\neq 0}$.\\
+$f$ ist stetig fortsetzbar in $0$.\\
+\textbf{Beh.:} $f$ ist streng monoton steigend. \\
+\textbf{Bew.:} Nach Voraussetzung ist $f$ differenzierbar, also stetig. Es gilt nach Voraussetzung $f'(x) > 0$ 
+für alle $x \in \mathbb{R}_{\neq 0}$, folglich ist $f$ wegen des Monotoniekriteriums streng monoton steigend in $]- \infty , 0 [$ 
+und $]0, + \infty$.
+Wegen der stetigen Fortsetzbarkeit von $f$ nach $0$ wissen wir auch, dass
+\begin{flalign*}
+    \mathbb{R}_{\neq 0} \cup \{0\} \rightarrow \mathbb{R}, x \mapsto \begin{cases}
+        f(x) &\text{$x \in \mathbb{R}_{\neq 0}$}\\
+        y^* &\text{$x = 0$}
+    \end{cases}
+\end{flalign*}
+eine stetige Funktion ist. Da also $f$ in jedem Punkt stetig ist, ist $f$ streng monoton steigend.\\
+\qed
 \end{document}
