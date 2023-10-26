@@ -1,0 +1,52 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[ngerman]{babel} 
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts} 
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titling}
+
+
+\newcommand*{\qed}{\null\nobreak\hfill\ensuremath{\square}}
+\newcommand*{\puffer}{\text{ }\text{ }\text{ }\text{ }}
+\newcommand*{\gedanke}{\textbf{-- }}
+\newcommand*{\gap}{\text{ }}
+\newcommand*{\vor}{\textbf{Vor.:} \gap}
+\newcommand*{\beh}{\textbf{Beh.:} \gap}
+\newcommand*{\bew}{\textbf{Bew.:} \gap}
+
+
+\pagestyle{plain}
+\allowdisplaybreaks
+
+\setlength{\droptitle}{-14em}
+\setlength{\jot}{12pt}
+
+\title{Mathematik für die Informatik C\\Hausaufgabenserie 1}
+\author{Henri Heyden, Nike Pulow \\ \small stu240825, stu239549}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+\doublespacing
+\subsection*{A1}
+    \vor
+        \(c \in [0, +\infty[\), \gap \(f : \mathbb R \rightarrow \mathbb R, x \mapsto c\cdot (x^2-3)\cdot e^{4x+1}\) \\
+        \(I_1 := ]-\infty, -2]; \gap I_2 := [-2, \frac{3}{2}]; \gap I_3 := [\frac{3}{2}, +\infty[\) \\
+    \beh \\
+        Fall 1. \(c \in ]0, +\infty[\): \\ \(f\) ist streng monoton steigend in \(I_1, I_3\) und streng monoton fallend in \(I_2\) \\
+        Somit gelte \(LMAX(f) = \{-2\}, \gap LMIN(f) = \{\frac{3}{2}\}\) \\
+        Fall 2. \(c = 0\): \\ \(f\) ist konstant in jedem Punkt, \(LMAX(f) = LMIN(f) = \emptyset\). \\
+    \bew Wir wissen \(f\) ist differenzierbar in ihrer Domain durch den Kombinationssatz der Differenzierbarkeit. Es folgt durch bekannte Regeln die Ableitung: \(f'(x) = 2c \cdot e^{4x+1} \cdot (2x^2+x-6)\).\\
+    Für Fall 2 ist der Beweis trivial, denn es gilt \(f'(x) = 0\) für jedes \(x \in \mathbb R\) somit folgt die Behauptung nach dem Monotoniekriterium. \\
+    Nun betrachten wir Fall 1. Da \(c > 0\) wissen wir, dass \(c\) für die Vorzeichen der Ableitung zu vernachlässigen ist. Des Weiteren ist bekannt, dass \(e^{4x+1}\) auch für \(x \in \mathbb R\) keine Nullstellen annimmt und immer positiv ist. \\
+    Definiere \(\phi : \mathbb R \rightarrow \mathbb R, x \mapsto 2x^2+x-6\). Nach vorheriger Überlegung wissen wir \(f'(x)\) ist genau dann \(0\), wenn \(\phi(x) = 0\) gilt, sowie sind die Vorzeichen für alle \(x\in \mathbb R\) gleich. \\
+    Für \(\phi\) ergeben sich die Nullstellen \(\phi^{\leftarrow}(0) = \{\frac{3}{2}, -2\}\). \\
+    Es gilt: \(\phi(-3) = 9 > \phi(-2) = 0 > \phi(0) = -6 < \phi(\frac{3}{2}) = 0 < \phi(2) = 4\).\\ 
+    Die Behauptung folgt aus dem Monotoniekriterium. \qed
+\subsection*{A2}
+\end{document}
