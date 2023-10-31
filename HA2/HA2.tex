@@ -1,0 +1,72 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[ngerman]{babel} 
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts} 
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titling}
+
+
+\newcommand*{\qed}{\null\nobreak\hfill\ensuremath{\square}}
+\newcommand*{\puffer}{\text{ }\text{ }\text{ }\text{ }}
+\newcommand*{\gedanke}{\textbf{-- }}
+\newcommand*{\gap}{\text{ }}
+\newcommand*{\setDef}{\gap|\gap}
+\newcommand*{\vor}{\textbf{Vor.:} \gap}
+\newcommand*{\beh}{\textbf{Beh.:} \gap}
+\newcommand*{\bew}{\textbf{Bew.:} \gap}
+% Hab länger gebraucht um zu realisieren, dass das ne gute Idee wäre
+\newcommand*{\R}{\mathbb R}
+
+
+\pagestyle{plain}
+\allowdisplaybreaks
+
+\setlength{\droptitle}{-14em}
+\setlength{\jot}{12pt}
+
+\title{Mathematik für die Informatik C\\Hausaufgabenserie 2}
+\author{Henri Heyden, Nike Pulow \\ \small stu240825, stu239549}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+\doublespacing
+
+\subsection*{A1}
+\vor \(f: [-1, 1] \rightarrow \R, x \mapsto \begin{cases}
+    1 & x = 0 \\
+    0 & \text{sonst}
+\end{cases}\) \\
+\beh \(f\) ist integrierbar und es gilt: \(\int f = 0\). \\
+\bew \\Wir werden zeigen: \[\forall (x^{(n)}, \xi^{(n)})_n \in \mathcal S(\text{PS} (a,b)), \lim_n \mu(x^{(n)}) = 0 : \lim_{n} R(f, x^{(n)}, \xi^{(n)}) = 0\]
+Nehme also an, dass wir zwei beliebige Folgen \((x^{(n)}, \xi^{(n)})_n \in \mathcal S(\text{PS} (a,b))\) haben für die gilt: \(\lim_n \mu(x^{(n)}) = 0\). \\
+Für jedes \(\xi\) (Hier alle Tupel, also alle Folgekomponenten aller der eben referierten Folgen) gibt es zwei Fälle: \\
+\textbf{Fall 1}: \(1 \not\in f^\rightarrow(\xi)\). \\
+Dann gilt: \(\forall \phi \in \xi: \phi \ne 0\). Hieraus lässt sich schließen \(f^\rightarrow(\xi) = \{0\}\) \\
+Dann sieht man leicht, dass \(\lim_{n} R(f, x^{(n)}, \xi^{(n)}) = 0\), gilt aufgrund der Definition der Riemann-Summe. \\
+\textbf{Fall 2}: \(1 \in f^\rightarrow(\xi)\). \\
+Dann gilt: \(0 \in \xi\) und \(f^\leftarrow (1) = 0\). Es existiert also genau eine \(\phi \in \xi\), sodass \(f(\phi) = 1\) gilt mit \(\phi = 0\). \\
+Definiere folgende Mengen:\\
+\(\Gamma_n := \{\phi \in \xi \setDef f(\phi) = 1\}, \gap \Delta_n := \{\phi \in \xi \setDef f(\phi) = 0\}\). \\
+Nach vorheriger Überlegung gilt \(|\Gamma| = 1\) und man sieht leicht \(|\Delta| = n - 1\). \\
+Jetzt können wir zeigen, dass \(\lim_{n} R(f, x^{(n)}, \xi^{(n)}) = 0\) gilt\footnote[1]{Im 2. Schritt meinen wir damit, dass wenn die Komponenten der Tupel so getauscht werden, dass der Wert für \(\xi_1 = \phi = 0\) gilt, dass dann sich das Integral nicht ändert.}:
+\begin{flalign*}
+    \lim_{n} R(f, x^{(n)}, \xi^{(n)}) & = \lim_{n} \sum_{j = 1}^{n} l(x^{(n)}, j) \cdot f(\xi^{(n)}_j) \puffer \puffer \text{| Reihenfolge der Summe ist egal, \(|\Gamma|, |\Delta| \)} & \\
+    & = \lim_{n} \left( \sum_{j = 1}^{1} l(x^{(n)}, j) \cdot f(\phi) + \sum_{j = 2}^{n} l(x^{(n)}, j) \cdot f(\xi^{(n)}_j) \right) & \\
+    & = \lim_{n} \left( \sum_{j = 1}^{1} l(x^{(n)}, j) \cdot f(0) + \sum_{j = 2}^{n} l(x^{(n)}, j) \cdot f(1) \right) \puffer \text{| Auswerten} \\
+    & = \lim_{n} \left( \sum_{j = 1}^{1} l(x^{(n)}, j) \cdot 1) + \sum_{j = 2}^{n} l(x^{(n)}, j) \cdot 0 \right) & \\
+    & = \lim_{n} \sum_{j = 1}^{1} l(x^{(n)}, j)) & \\
+    & = \lim_{n} l(x^{(n)}, j) \puffer \puffer \puffer \puffer \puffer \puffer \text{|Def. \(\mu\), \(\mu \rightarrow 0\)} \\
+    & = 0
+\end{flalign*}
+Nach Konvergenzkriterium ist somit \(f\) integrierbar mit Integral \(\int f = 0\)  \qed
+\subsection*{A2}
+\subsubsection*{1)}
+\subsubsection*{2)}
+
+\end{document}
