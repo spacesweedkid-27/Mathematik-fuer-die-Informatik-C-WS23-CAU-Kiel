@@ -7,6 +7,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{titling}
+\usepackage{hyperref}
 
 
 \newcommand*{\qed}{\null\nobreak\hfill\ensuremath{\square}}
@@ -64,9 +65,30 @@ Jetzt können wir zeigen, dass \(\lim_{n} R(f, x^{(n)}, \xi^{(n)}) = 0\) gilt\fo
     & = \lim_{n} l(x^{(n)}, j) \puffer \puffer \puffer \puffer \puffer \puffer \text{|Def. \(\mu\), \(\mu \rightarrow 0\)} \\
     & = 0
 \end{flalign*}
-Nach Konvergenzkriterium ist somit \(f\) integrierbar mit Integral \(\int f = 0\)  \qed
+Nach Konvergenzkriterium ist somit \(f\) integrierbar mit Integral \(\int f = 0\)  \qed \pagebreak
 \subsection*{A2}
+\vor \(n \in \mathbb N_1\), definiere \(\delta^{(n)} := \frac{b-a}{n}\) sowie \((x^{(n)}, \xi ^ {(n)}) \in \text{PS}(a,b)\) mit:
+\begin{flalign*}
+    & \puffer x_j ^{(n)} := a + j\delta ^ {(n)} & j \in [n]_0 \\
+    & \puffer \xi_j ^{(n)} := a + (j - 1) \delta ^ {(n)} & j \in [n]_1
+\end{flalign*}
+Definiere \(f: [a,b] \rightarrow \R, x \mapsto e^x\).
 \subsubsection*{1)}
+\beh \\ 
+\bew Hier kommt der Kram\dots \\ Die zweite Teilaufgabe passt gut auf genau eine Seite, deswegen der \verb|pagebreak|
+\pagebreak
 \subsubsection*{2)}
-
+\beh \(\lim_{n} R(f, x^{(n)}, \xi^{(n)}) = e^b - e^a\) \\
+\bew Es gilt nach vorheriger Aufgabe: \(\lim_{n} R(f, x^{(n)}, \xi^{(n)}) = \lim_{n} \left( \delta ^ {(n)} \cdot \frac{e^b - e^a}{{e^\delta}^{(n)} - 1} \right)\). \\
+Betrachte folgende Umformung\footnote[2]{Wenn wir die Regel von L'Hôpital anwenden, dann betrachten wir nicht mehr eine Folge, sondern ALLE Funktionswertfolgen. \(n\) wird zur Folgenkomponente einer Folge mit Limes \(+\infty\). Jedoch da der Funktionslimes dann für alle Funktionswertfolgen gilt, gilt er auch für die Folge \((id_\mathbb{N}(k))_k\). Da wir alle Funktionswertfolgen betrachten, nimmt \(n\) also auch diese Werte an, weswegen wir, wenn wir für alle Funktionswertfolgen den Funktionslimes zeigen, damit dann auch den Limes der originalen Folge zeigen, da diese eine Teilfolge der Funktionswertfolgen ist. Eine Diskussion über dieses Thema lässt sich \href{https://www.matheplanet.com/default3.html?call=viewtopic.php?topic=135777}{hier} nachlesen. \\ Alternativ lässt sich auch der Satz von Stolz anwenden.}:
+\begin{flalign*}
+    & \lim_{n} \left( \delta ^ {(n)} \cdot \frac{e^b - e^a}{{e^\delta}^{(n)} - 1} \right) & \\
+    & = (e^b - e^a) \cdot  \lim_{n} \left(\frac{\delta ^ {(n)}}{{e^\delta}^{(n)} - 1} \right) & \text{| Einsetzen} \\
+    & = (e^b - e^a) \cdot \lim_{n} \left( \frac{\frac{b-a}{n}}{e^\frac{b-a}{n} - 1} \right) & \text{| Stetigkeit, L'Hôpital für \(id_{\mathbb N}\)} \\
+    & = (e^b - e^a) \cdot \lim_{n \rightarrow +\infty} \left( \frac{\frac{a-b}{n^2}}{\frac{(a-b) \cdot e^{\frac{b-a}{n}}}{n^2}} \right) & \text{| Zwei mal kürzen} \\
+    & = (e^b - e^a) \cdot \lim_{n \rightarrow +\infty} \left( \frac{1}{e^{\frac{b-a}{n}}} \right) & \text{| Stetigkeit, \(\frac{b-a}{n} \rightarrow 0\)} \\
+    & = (e^b - e^a) \cdot \lim_{n \rightarrow +\infty} \left( \frac{1}{e^0} \right) & \\
+    & = (e^b - e^a)
+\end{flalign*}
+Was zu zeigen war. \qed
 \end{document}
