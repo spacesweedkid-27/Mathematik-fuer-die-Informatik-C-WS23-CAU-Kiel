@@ -74,8 +74,31 @@ Nach Konvergenzkriterium ist somit \(f\) integrierbar mit Integral \(\int f = 0\
 \end{flalign*}
 Definiere \(f: [a,b] \rightarrow \R, x \mapsto e^x\).
 \subsubsection*{1)}
-\beh \\ 
-\bew Hier kommt der Kram\dots \\ Die zweite Teilaufgabe passt gut auf genau eine Seite, deswegen der \verb|pagebreak|
+\beh Es gilt \(R(f, x^{(n)}, \xi^{(n)}) = \delta^{(n)}\frac{e^b-e^a}{e^{\delta^{(n)}}-1}\).\\
+\bew
+Zunächst wenden wir die Definition der Riemann-Summe an und formen dann so um, dass die Geometrische Summenformel anwendbar ist:
+\begin{flalign*}
+    R(f, x^{(n)}, \xi^{(n)}) &= \sum_{j=1}^{n}(x_{j}-x_{j-1})f(\xi_j) & \text{Def. \(x_j, \xi_j\)}\\
+    \begin{split}
+        =\sum_{j=1}^{n}((a+j\frac{b-a}{n})-(a+(j-1)\frac{b-a}{n})) \\
+        f(a+(j-1)\frac{b-a}{n})\\
+    \end{split}\\
+    &=\sum_{j=1}^{n}\frac{b-a}{n}f(a+(j-1)\frac{b-a}{n}) & \text{Def. \(\delta^{(n)}\), Konstante}\\
+    &=\delta^{(n)}\sum_{j=1}^{n}f(a+(j-1)\frac{b-a}{n}) & \text{\(f\) anwenden, Def. \(\delta^{(n)}\)}\\
+    &=\delta^{(n)}\sum_{j=1}^{n}e^a{(e^{\delta^{(n)}})}^{j-1} & \text{\(e^a\) Konstante}\\
+    &=\delta^{(n)} e^a \sum_{j=1}^{n} {(e^{\delta^{(n)}})}^{j-1} & q:=e^{\delta^{(n)}}\\
+    &=\delta^{(n)} e^a \sum_{j=1}^{n}q^{j-1} & \text{Geometrische Summenformel}\\
+    &=\delta^{(n)} e^a \frac{q^n-1}{q-1} & \text{Def. \(q\)}\\
+    &=\delta^{(n)} e^a \frac{{(e^{\delta^{(n)}})}^n-1}{e^{\delta^{(n)}}-1} & \text{Def.} \delta^{(n)}\\
+    &=\delta^{(n)} e^a \frac{{(e^{\frac{b-a}{n}})}^n-1}{e^{\delta^{(n)}}-1} & \text{Potenzregeln}\\
+    &=\delta^{(n)} e^a \frac{e^{b-a}-1}{e^{\delta^{(n)}}-1} & \text{Bruchregeln}\\
+    &=\delta^{(n)} \frac{e^a}{1} \frac{e^{b-a}-1}{e^{\delta^{(n)}}-1} & \text{Ausmultiplizieren}\\
+    &=\delta^{(n)} \frac{e^a e^{b-a}-e^a}{e^{\delta^{(n)}}-1} & \\
+    &=\delta^{(n)} \frac{e^{b-a}}{e^{\delta^{(n)}}-1} & \text{Potenzregeln}\\
+    &=\delta^{(n)} \frac{e^b - e^a}{e^{\delta^{(n)}}-1} &
+\end{flalign*}
+Damit ist gezeigt, was zu zeigen war.\\
+\qed
 \pagebreak
 \subsubsection*{2)}
 \beh \(\lim_{n} R(f, x^{(n)}, \xi^{(n)}) = e^b - e^a\) \\
