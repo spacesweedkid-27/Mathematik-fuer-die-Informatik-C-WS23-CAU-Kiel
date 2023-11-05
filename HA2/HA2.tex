@@ -46,18 +46,18 @@
 \beh \(f\) ist integrierbar und es gilt: \(\int f = 0\). \\
 \bew \\Wir werden zeigen: \[\forall (x^{(n)}, \xi^{(n)})_n \in \mathcal S(\text{PS} (a,b)), \lim_n \mu(x^{(n)}) = 0 : \lim_{n} R(f, x^{(n)}, \xi^{(n)}) = 0\]
 Nehme also an, dass wir zwei beliebige Folgen \((x^{(n)}, \xi^{(n)})_n \in \mathcal S(\text{PS} (a,b))\) haben für die gilt: \(\lim_n \mu(x^{(n)}) = 0\). \\
-Für jedes \(\xi\) (Hier alle Tupel, also alle Folgekomponenten aller der eben referierten Folgen) gibt es zwei Fälle: \\
+Für jedes \(\xi^{(n)}\) (wir schreiben ab nun \(\xi := \xi^{(n)}\)) gibt es zwei Fälle: \\
 \textbf{Fall 1}: \(1 \not\in f^\rightarrow(\xi)\). \\
 Dann gilt: \(\forall \phi \in \xi: \phi \ne 0\). Hieraus lässt sich schließen \(f^\rightarrow(\xi) = \{0\}\) \\
 Dann sieht man leicht, dass \(\lim_{n} R(f, x^{(n)}, \xi^{(n)}) = 0\), gilt aufgrund der Definition der Riemann-Summe. \\
 \textbf{Fall 2}: \(1 \in f^\rightarrow(\xi)\). \\
-Dann gilt: \(0 \in \xi\) und \(f^\leftarrow (1) = 0\). Es existiert also genau eine \(\phi \in \xi\), sodass \(f(\phi) = 1\) gilt mit \(\phi = 0\). \\
+Dann gilt: \(0 \in \xi\) und \(f^\leftarrow (1) = 0\). Es existiert also genau ein \(\phi \in \xi\), sodass \(f(\phi) = 1\) gilt mit \(\phi = 0\). \\
 Definiere folgende Mengen:\\
 \(\Gamma_n := \{\phi \in \xi \setDef f(\phi) = 1\}, \gap \Delta_n := \{\phi \in \xi \setDef f(\phi) = 0\}\). \\
-Nach vorheriger Überlegung gilt \(|\Gamma| = 1\) und man sieht leicht \(|\Delta| = n - 1\). \\
+Nach vorheriger Überlegung gilt \(|\Gamma_n| = 1\) und man sieht leicht \(|\Delta_n| = n - 1\). \\
 Jetzt können wir zeigen, dass \(\lim_{n} R(f, x^{(n)}, \xi^{(n)}) = 0\) gilt\footnote[1]{Im 2. Schritt meinen wir damit, dass wenn die Komponenten der Tupel so getauscht werden, dass der Wert für \(\xi_1 = \phi = 0\) gilt, dass dann sich das Integral nicht ändert.}:
 \begin{flalign*}
-    \lim_{n} R(f, x^{(n)}, \xi^{(n)}) & = \lim_{n} \sum_{j = 1}^{n} l(x^{(n)}, j) \cdot f(\xi^{(n)}_j) \puffer \puffer \text{| Reihenfolge der Summe ist egal, \(|\Gamma|, |\Delta| \)} & \\
+    \lim_{n} R(f, x^{(n)}, \xi^{(n)}) & = \lim_{n} \sum_{j = 1}^{n} l(x^{(n)}, j) \cdot f(\xi^{(n)}_j) \puffer \puffer \text{| Reihenfolge der Tupel ist egal, \(|\Gamma_n|, |\Delta_n| \)} & \\
     & = \lim_{n} \left( \sum_{j = 1}^{1} l(x^{(n)}, j) \cdot f(\phi) + \sum_{j = 2}^{n} l(x^{(n)}, j) \cdot f(\xi^{(n)}_j) \right) & \\
     & = \lim_{n} \left( \sum_{j = 1}^{1} l(x^{(n)}, j) \cdot f(0) + \sum_{j = 2}^{n} l(x^{(n)}, j) \cdot f(1) \right) \puffer \text{| Auswerten} \\
     & = \lim_{n} \left( \sum_{j = 1}^{1} l(x^{(n)}, j) \cdot 1) + \sum_{j = 2}^{n} l(x^{(n)}, j) \cdot 0 \right) & \\
@@ -103,7 +103,7 @@ Damit ist gezeigt, was zu zeigen war.\\
 \subsubsection*{2)}
 \beh \(\lim_{n} R(f, x^{(n)}, \xi^{(n)}) = e^b - e^a\) \\
 \bew Es gilt nach vorheriger Aufgabe: \(\lim_{n} R(f, x^{(n)}, \xi^{(n)}) = \lim_{n} \left( \delta ^ {(n)} \cdot \frac{e^b - e^a}{{e^\delta}^{(n)} - 1} \right)\). \\
-Betrachte folgende Umformung\footnote[2]{Wenn wir die Regel von L'Hôpital anwenden, dann betrachten wir nicht mehr eine Folge, sondern ALLE Funktionswertfolgen. \(n\) wird zur Folgenkomponente einer Folge mit Limes \(+\infty\). Jedoch da der Funktionslimes dann für alle Funktionswertfolgen gilt, gilt er auch für die Folge \((id_\mathbb{N}(k))_k\). Da wir alle Funktionswertfolgen betrachten, nimmt \(n\) also auch diese Werte an, weswegen wir, wenn wir für alle Funktionswertfolgen den Funktionslimes zeigen, damit dann auch den Limes der originalen Folge zeigen, da diese eine Teilfolge der Funktionswertfolgen ist. Eine Diskussion über dieses Thema lässt sich \href{https://www.matheplanet.com/default3.html?call=viewtopic.php?topic=135777}{hier} nachlesen. \\ Alternativ lässt sich auch der Satz von Stolz anwenden.}:
+Betrachte folgende Umformung\footnote[2]{Wenn wir die Regel von L'Hôpital anwenden, dann betrachten wir nicht mehr eine Folge, sondern ALLE Funktionswertfolgen. \(n\) wird zur Folgenkomponente einer Folge mit Limes \(+\infty\). Jedoch da der Funktionslimes dann für alle Funktionswertfolgen gilt, gilt er auch für die Folge \((id_\mathbb{N}(k))_k\). Da wir alle Funktionswertfolgen betrachten, nimmt \(n\) also auch diese Werte an, weswegen wir, wenn wir für alle Funktionswertfolgen den Funktionslimes zeigen, damit dann auch den Limes der originalen Folge zeigen, da diese eine Teilfolge der Funktionswertfolgen ist. Eine Diskussion über dieses Thema lässt sich \href{https://www.matheplanet.com/default3.html?call=viewtopic.php?topic=135777}{hier} nachlesen. \\ Wir betrachten also damit den Zähler und den Nenner als Abbildungen von \(n\) über \(\R_1\). Man sieht beide haben Funktionslimes \(0\) und sind differenzierbar, also sind sie für L'Hôpital verwendbar.}:
 \begin{flalign*}
     & \lim_{n} \left( \delta ^ {(n)} \cdot \frac{e^b - e^a}{{e^\delta}^{(n)} - 1} \right) & \\
     & = (e^b - e^a) \cdot  \lim_{n} \left(\frac{\delta ^ {(n)}}{{e^\delta}^{(n)} - 1} \right) & \text{| Einsetzen} \\
