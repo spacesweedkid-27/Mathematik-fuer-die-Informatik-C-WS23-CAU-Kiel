@@ -27,6 +27,8 @@
 
 \setlength{\droptitle}{-14em}
 \setlength{\jot}{12pt}
+\setlength{\hoffset}{-3cm}
+\setlength{\textwidth}{525pt}
 
 \title{Mathematik für die Informatik C\\Hausaufgabenserie 3}
 \author{Henri Heyden, Nike Pulow \\ \small stu240825, stu239549}
@@ -50,17 +52,35 @@
     & = \left[ \frac{x^{1-t}}{1-t} \cdot \left(\ln(x) - \frac{1}{1-t}\right) \right]_a^b
 \end{flalign*} \qed \pagebreak
 \subsection*{A2}
-\vor blablabla \\
+\vor \(a,b \in \R, \gap \gap a < b, \gap \gap \beta, \gamma \in ]0, +\infty[, \gap \gap \beta \ne 1\) \\
 \beh \(\int_a^b \beta^x \cdot \sin(\gamma x) = \frac{\gamma^{-1}\cdot \left( \left[-\beta^x \cdot \cos(\gamma x)\right]_a^b + \gamma ^{-1} \cdot \log(\beta)^{-1} \cdot \left[ \beta^x \cdot \sin(\gamma x) \right]_a^b \right)}{\gamma ^{-2} \cdot \log(\beta)^{-2} + 1}\) \\
-\bew In folgenden Umformungschritten sei bedacht, dass wir einige Ausdrücke temporär als Abbildungen von \(x\) zu \(\R\) betrachten, damit wir Substitution und partielle Integration anwenden können. Jedoch da, wenn wir jedes mal einen Namen geben oder diesen Satz hier erwähnen, schnell der Platz ausläuft, werden wir die Regeln anwenden ohne ganz formal die Funktionen immer wieder zu definieren. \\
-Desweiteren werden wir für integrierbare Funktionen \(f\), für die Werte \(x \in \text{dom}(f)\), \(\int f(x)\) als Schreibweise für die (noch unbekannten) Werte einer Stammfunktion verwenden ohne damit das vollständige Integral eine Funktion zu meinen. Dies hat den gleichen Grund, wie bei dem Absatz zuvor: Platzsparung. \\
+\bew In folgenden Umformungsschritten sei bedacht, dass wir einige Ausdrücke temporär als Abbildungen von \(x\) zu \(\R\) betrachten, damit wir Substitution und partielle Integration anwenden können. Jedoch da, wenn wir jedes mal einen Namen geben oder diesen Satz hier erwähnen, schnell der Platz ausläuft, werden wir die Regeln anwenden ohne ganz formal die Funktionen immer wieder zu definieren. \\
+Des Weiteren werden wir für integrierbare Funktionen \(f\), für die Werte \(x \in \text{dom}(f)\), \(\int f(x)\) als Schreibweise für die (noch unbekannten) Werte einer Stammfunktion verwenden ohne damit das vollständige Integral eine Funktion zu meinen. Dies hat den gleichen Grund, wie bei dem Absatz zuvor: Platzsparung. \\
 Betrachte folgende Gleichung:
 \begin{flalign*}
     & \int_a^b \beta^x \cdot \sin(\gamma x) & \text{| Partielle Integration} \\
     = & \left[\beta^x \cdot \int \sin(\gamma x)\right]_a^b - \int_{a}^{b} \left(\log(\beta) \cdot \beta^x \cdot \int \sin(\gamma x)\right) & \text{| \(\cdot \gamma \cdot \gamma^{-1}\), Rausziehen} \\
     = & \left[\beta^x \cdot \gamma^{-1} \cdot \int \sin(\gamma x) \cdot \gamma\right]_a^b - \int_{a}^{b} \left(\log(\beta)^{-1} \cdot \beta^x \cdot \int \sin(\gamma x)\right) & \text{| Substitution bringt:} \\
-    = & \gamma^{-1} \cdot \left[\beta^x \cdot -\cos(\gamma x) \right]_a^b - \int_{a}^{b} \left(\log(\beta)^{-1} \cdot \beta^x \cdot \gamma^{-1} \cdot -\cos(\gamma x)\right) & \text{| \(\gamma^{-1}\) Rausziehen und ausklammern} \\
-    = & \gamma^{-1} \cdot \left(\left[-\beta^x \cdot \cos(\gamma x) \right]_a^b + \log(\beta)^{-1} \cdot \int_{a}^{b} \beta^x \cdot \cos(\gamma x)\right) & \text{| Partielle Integration} \\
-    = & \gamma^{-1} \cdot \left(\left[-\beta^x \cdot \cos(\gamma x) \right]_a^b + \log(\beta)^{-1} \cdot \left(\left[ \beta^x \cdot \int \cos(\gamma x)\right]_a^b - \int_{a}^{b}\left(\log(\beta)^{-1} \cdot \beta^x \cdot \int \cos(\gamma x)\right)\right)\right)
+    = & \gap \gamma^{-1} \cdot \left[\beta^x \cdot -\cos(\gamma x) \right]_a^b - \int_{a}^{b} \left(\log(\beta)^{-1} \cdot \beta^x \cdot \gamma^{-1} \cdot -\cos(\gamma x)\right) & \text{| \(\gamma^{-1}\) Rausziehen und ausklammern} \\
+    = & \gap \gamma^{-1} \cdot \left(\left[-\beta^x \cdot \cos(\gamma x) \right]_a^b + \log(\beta)^{-1} \cdot \int_{a}^{b} \beta^x \cdot \cos(\gamma x)\right) & \text{| Partielle Integration}
 \end{flalign*}
+\begin{flalign*}
+    = & \gap \gamma^{-1} \cdot \left(\left[-\beta^x \cdot \cos(\gamma x) \right]_a^b + \log(\beta)^{-1} \cdot \left(\left[ \beta^x \cdot \int \cos(\gamma x)\right]_a^b - \int_{a}^{b}\left(\log(\beta)^{-1} \cdot \beta^x \cdot \int \cos(\gamma x)\right)\right)\right)
+\end{flalign*}
+Nun klammern wir \(\gamma\) zweimal wieder aus den unvollständigen Integralen, substituieren und kürzen wie zuvor, dann ergibt sich:
+\begin{flalign*}
+    = & \gap \gamma^{-1} \cdot \left(\left[-\beta^x \cdot \cos(\gamma x) \right]_a^b + \log(\beta)^{-1} \cdot \left(\left[\beta ^x \cdot \gamma^{-1} \cdot \sin(\gamma x)\right]_a^b - \int_{a}^{b}\log(\beta)^{-1} \cdot \beta^x \cdot \gamma ^{-1} \cdot \sin(\gamma x)\right)\right)
+\end{flalign*}
+Nun lösen wir Klammern auf:
+\begin{flalign*}
+    = & \gap \gamma^{-1} \cdot \left[-\beta^x \cdot \cos(\gamma x) \right]_a^b + \gamma^{-1} \log(\beta)^{-1} \cdot \left[\beta ^x \cdot \gamma^{-1} \cdot \sin(\gamma x)\right]_a^b - \gamma^{-1} \log(\beta)^{-1} \cdot \int_{a}^{b}\log(\beta)^{-1} \cdot \beta^x \cdot \gamma ^{-1} \cdot \sin(\gamma x)
+\end{flalign*}
+Und ein letztes Mal ziehen wir Konstanten raus:
+\begin{flalign*}
+    = & \gap \gamma^{-1} \cdot \left[-\beta^x \cdot \cos(\gamma x) \right]_a^b + \gamma^{-1} \log(\beta)^{-1} \cdot \left[\beta ^x \cdot \gamma^{-1} \cdot \sin(\gamma x)\right]_a^b - \gamma^{-2} \log(\beta)^{-2} \cdot \int_{a}^{b}\beta^x \cdot \sin(\gamma x)
+\end{flalign*}
+Sei \(a := \int_{a}^{b}\beta^x \cdot \sin(\gamma x)\), \gap \(b := \gamma^{-1} \cdot \left[-\beta^x \cdot \cos(\gamma x) \right]_a^b + \gamma^{-1} \log(\beta)^{-1} \cdot \left[\beta ^x \cdot \gamma^{-1} \cdot \sin(\gamma x)\right]_a^b\), \gap \(c := \gamma^{-2} \log(\beta)^{-2}\). \\
+Dann haben wir die Gleichung auf die Form: \(a = b - c\cdot a\) gebracht. Es folgt, da \(c \ne -1\) gilt: \(a = \frac{b}{c+1}\). \\
+Somit gilt: \(\int_a^b \beta^x \cdot \sin(\gamma x) = \frac{\gamma^{-1}\cdot \left( \left[-\beta^x \cdot \cos(\gamma x)\right]_a^b + \gamma ^{-1} \cdot \log(\beta)^{-1} \cdot \left[ \beta^x \cdot \sin(\gamma x) \right]_a^b \right)}{\gamma ^{-2} \cdot \log(\beta)^{-2} + 1}\) (\(\gamma^{-1}\) wurde noch ausgeklammert). \\
+Was zu zeigen war. \qed
 \end{document}
