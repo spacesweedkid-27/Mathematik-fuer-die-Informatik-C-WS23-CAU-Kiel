@@ -58,6 +58,9 @@ Betrachte folgende Gleichung:
 \begin{flalign*}
     & \int_a^b \beta^x \cdot \sin(\gamma x) & \text{| Partielle Integration} \\
     = & \left[\beta^x \cdot \int \sin(\gamma x)\right]_a^b - \int_{a}^{b} \left(\log(\beta) \cdot \beta^x \cdot \int \sin(\gamma x)\right) & \text{| \(\cdot \gamma \cdot \gamma^{-1}\), Rausziehen} \\
-    = & \left[\beta^x \cdot \gamma^{-1} \cdot \int \sin(\gamma x) \cdot \gamma\right]_a^b - \int_{a}^{b} \left(\log(\beta) \cdot \beta^x \cdot \int \sin(\gamma x)\right) & \text{| Substitution} \\
+    = & \left[\beta^x \cdot \gamma^{-1} \cdot \int \sin(\gamma x) \cdot \gamma\right]_a^b - \int_{a}^{b} \left(\log(\beta)^{-1} \cdot \beta^x \cdot \int \sin(\gamma x)\right) & \text{| Substitution bringt:} \\
+    = & \gamma^{-1} \cdot \left[\beta^x \cdot -\cos(\gamma x) \right]_a^b - \int_{a}^{b} \left(\log(\beta)^{-1} \cdot \beta^x \cdot \gamma^{-1} \cdot -\cos(\gamma x)\right) & \text{| \(\gamma^{-1}\) Rausziehen und ausklammern} \\
+    = & \gamma^{-1} \cdot \left(\left[-\beta^x \cdot \cos(\gamma x) \right]_a^b + \log(\beta)^{-1} \cdot \int_{a}^{b} \beta^x \cdot \cos(\gamma x)\right) & \text{| Partielle Integration} \\
+    = & \gamma^{-1} \cdot \left(\left[-\beta^x \cdot \cos(\gamma x) \right]_a^b + \log(\beta)^{-1} \cdot \left(\left[ \beta^x \cdot \int \cos(\gamma x)\right]_a^b - \int_{a}^{b}\left(\log(\beta)^{-1} \cdot \beta^x \cdot \int \cos(\gamma x)\right)\right)\right)
 \end{flalign*}
 \end{document}
