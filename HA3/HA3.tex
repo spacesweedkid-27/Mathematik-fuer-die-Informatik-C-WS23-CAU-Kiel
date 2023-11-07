@@ -48,6 +48,16 @@
     & = \left[\ln(x) \cdot \frac{x^{1-t}}{1-t}\right]_a^b - \frac{1}{1-t} \cdot \int_a^b x^{-t} & \text{| Ausrechnen und Reinziehen} \\
     & = \left[\ln(x) \cdot \frac{x^{1-t}}{1-t}\right]_a^b -\left[ \frac{1}{1-t} \cdot \frac{x^{1-t}}{1-t}\right]_a^b & \text{| Zusammenziehen und Ausklammern} \\
     & = \left[ \frac{x^{1-t}}{1-t} \cdot \left(\ln(x) - \frac{1}{1-t}\right) \right]_a^b
-\end{flalign*} \qed
-
+\end{flalign*} \qed \pagebreak
+\subsection*{A2}
+\vor blablabla \\
+\beh \(\int_a^b \beta^x \cdot \sin(\gamma x) = \frac{\gamma^{-1}\cdot \left( \left[-\beta^x \cdot \cos(\gamma x)\right]_a^b + \gamma ^{-1} \cdot \log(\beta)^{-1} \cdot \left[ \beta^x \cdot \sin(\gamma x) \right]_a^b \right)}{\gamma ^{-2} \cdot \log(\beta)^{-2} + 1}\) \\
+\bew In folgenden Umformungschritten sei bedacht, dass wir einige Ausdrücke temporär als Abbildungen von \(x\) zu \(\R\) betrachten, damit wir Substitution und partielle Integration anwenden können. Jedoch da, wenn wir jedes mal einen Namen geben oder diesen Satz hier erwähnen, schnell der Platz ausläuft, werden wir die Regeln anwenden ohne ganz formal die Funktionen immer wieder zu definieren. \\
+Desweiteren werden wir für integrierbare Funktionen \(f\), für die Werte \(x \in \text{dom}(f)\), \(\int f(x)\) als Schreibweise für die (noch unbekannten) Werte einer Stammfunktion verwenden ohne damit das vollständige Integral eine Funktion zu meinen. Dies hat den gleichen Grund, wie bei dem Absatz zuvor: Platzsparung. \\
+Betrachte folgende Gleichung:
+\begin{flalign*}
+    & \int_a^b \beta^x \cdot \sin(\gamma x) & \text{| Partielle Integration} \\
+    = & \left[\beta^x \cdot \int \sin(\gamma x)\right]_a^b - \int_{a}^{b} \left(\log(\beta) \cdot \beta^x \cdot \int \sin(\gamma x)\right) & \text{| \(\cdot \gamma \cdot \gamma^{-1}\), Rausziehen} \\
+    = & \left[\beta^x \cdot \gamma^{-1} \cdot \int \sin(\gamma x) \cdot \gamma\right]_a^b - \int_{a}^{b} \left(\log(\beta) \cdot \beta^x \cdot \int \sin(\gamma x)\right) & \text{| Substitution} \\
+\end{flalign*}
 \end{document}
