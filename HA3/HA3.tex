@@ -53,7 +53,7 @@
 \end{flalign*} \qed \pagebreak
 \subsection*{A2}
 \vor \(a,b \in \R, \gap \gap a < b, \gap \gap \beta, \gamma \in ]0, +\infty[, \gap \gap \beta \ne 1\) \\
-\beh \(\int_a^b \beta^x \cdot \sin(\gamma x) = \frac{\gamma^{-1}\cdot \left( \left[-\beta^x \cdot \cos(\gamma x)\right]_a^b + \gamma ^{-1} \cdot \log(\beta)^{-1} \cdot \left[ \beta^x \cdot \sin(\gamma x) \right]_a^b \right)}{\gamma ^{-2} \cdot \log(\beta)^{-2} + 1}\) \\
+\beh \(\int_a^b \beta^x \cdot \sin(\gamma x) = \frac{\gamma^{-1}\cdot \left( \left[-\beta^x \cdot \cos(\gamma x)\right]_a^b + \gamma ^{-1} \cdot \log(\beta)^{-1} \cdot \left[ \beta^x \cdot \sin(\gamma x) \right]_a^b \right)}{\gamma ^{-2} \cdot \log(\beta)^{-2} + 1}\), wenn \(a \ne \pm \ln (b)^{-1}\), falls definiert. \\
 \bew In folgenden Umformungsschritten sei bedacht, dass wir einige Ausdrücke temporär als Abbildungen von \(x\) zu \(\R\) betrachten, damit wir Substitution und partielle Integration anwenden können. Jedoch da, wenn wir jedes mal einen Namen geben oder diesen Satz hier erwähnen, schnell der Platz ausläuft, werden wir die Regeln anwenden ohne ganz formal die Funktionen immer wieder zu definieren. \\
 Des Weiteren werden wir für integrierbare Funktionen \(f\), für die Werte \(x \in \text{dom}(f)\), \(\int f(x)\) als Schreibweise für die (noch unbekannten) Werte einer Stammfunktion verwenden ohne damit das vollständige Integral eine Funktion zu meinen. Dies hat den gleichen Grund, wie bei dem Absatz zuvor: Platzsparung. \\
 Betrachte folgende Gleichung:
@@ -81,6 +81,6 @@ Und ein letztes Mal ziehen wir Konstanten raus:
 \end{flalign*}
 Sei \(a := \int_{a}^{b}\beta^x \cdot \sin(\gamma x)\), \gap \(b := \gamma^{-1} \cdot \left[-\beta^x \cdot \cos(\gamma x) \right]_a^b + \gamma^{-1} \log(\beta)^{-1} \cdot \left[\beta ^x \cdot \gamma^{-1} \cdot \sin(\gamma x)\right]_a^b\), \gap \(c := \gamma^{-2} \log(\beta)^{-2}\). \\
 Dann haben wir die Gleichung auf die Form: \(a = b - c\cdot a\) gebracht. Es folgt, da \(c \ne -1\) gilt: \(a = \frac{b}{c+1}\). \\
-Somit gilt: \(\int_a^b \beta^x \cdot \sin(\gamma x) = \frac{\gamma^{-1}\cdot \left( \left[-\beta^x \cdot \cos(\gamma x)\right]_a^b + \gamma ^{-1} \cdot \log(\beta)^{-1} \cdot \left[ \beta^x \cdot \sin(\gamma x) \right]_a^b \right)}{\gamma ^{-2} \cdot \log(\beta)^{-2} + 1}\) (\(\gamma^{-1}\) wurde noch ausgeklammert). \\
+Somit gilt: \(\int_a^b \beta^x \cdot \sin(\gamma x) = \frac{\gamma^{-1}\cdot \left( \left[-\beta^x \cdot \cos(\gamma x)\right]_a^b + \gamma ^{-1} \cdot \log(\beta)^{-1} \cdot \left[ \beta^x \cdot \sin(\gamma x) \right]_a^b \right)}{\gamma ^{-2} \cdot \log(\beta)^{-2} + 1}\) (\(\gamma^{-1}\) wurde noch ausgeklammert) genau dann, wenn \(\gamma^{-2} \cdot \ln(\beta)^{-2} + 1 \ne 0\) gilt, also genau dann, wenn \(a \ne \pm \ln (b)^{-1}\) gilt, falls definiert. \\
 Was zu zeigen war. \qed
 \end{document}
