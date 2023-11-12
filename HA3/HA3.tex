@@ -82,5 +82,18 @@ Und ein letztes Mal ziehen wir Konstanten raus:
 Sei \(a := \int_{a}^{b}\beta^x \cdot \sin(\gamma x)\), \gap \(b := \gamma^{-1} \cdot \left[-\beta^x \cdot \cos(\gamma x) \right]_a^b + \gamma^{-1} \log(\beta)^{-1} \cdot \left[\beta ^x \cdot \gamma^{-1} \cdot \sin(\gamma x)\right]_a^b\), \gap \(c := \gamma^{-2} \log(\beta)^{-2}\). \\
 Dann haben wir die Gleichung auf die Form: \(a = b - c\cdot a\) gebracht. Es folgt, da \(c \ne -1\) gilt: \(a = \frac{b}{c+1}\). \\
 Somit gilt: \(\int_a^b \beta^x \cdot \sin(\gamma x) = \frac{\gamma^{-1}\cdot \left( \left[-\beta^x \cdot \cos(\gamma x)\right]_a^b + \gamma ^{-1} \cdot \log(\beta)^{-1} \cdot \left[ \beta^x \cdot \sin(\gamma x) \right]_a^b \right)}{\gamma ^{-2} \cdot \log(\beta)^{-2} + 1}\) (\(\gamma^{-1}\) wurde noch ausgeklammert) genau dann, wenn \(\gamma^{-2} \cdot \ln(\beta)^{-2} + 1 \ne 0\) gilt, also genau dann, wenn \(\gamma \ne \pm \ln (\beta)^{-1}\) gilt, falls definiert. \\
+Was zu zeigen war. \qed \pagebreak
+\subsection*{A3}
+\vor \(\Omega \subseteq \R\), \(f : \Omega \rightarrow \R\) Lipschitz-stetig mit \(L > 0\) Lipschitz-Konstante. \\
+\beh \(f\) ist gleichmäßig stetig. \\
+\bew Angenommen \(\exists L > 0 : \forall x,y \in \Omega: |f(x) - f(y)| \le L \cdot |x-y|\), dann ist zu zeigen:\\ \(\forall \epsilon > 0: \exists \delta > 0: \forall x,y \in \Omega, |x-y| < \delta: |f(x) - f(y)| < \epsilon\) \\
+Sei \(\epsilon > 0\), \(\delta := \frac{\epsilon}{L}\) und \(x,y \in \Omega\), sodass \(|f(x) - f(y)| < \delta\) gilt. Dann gilt:
+\begin{flalign*}
+    & |f(x) - f(y)| & \text{| Lipschitz-stetigkeit} \\
+    \le \gap & L \cdot |x-y| & \\
+    = \gap & \frac{\epsilon}{\delta} \cdot |x-y| & \text{| Definition \(\delta\), Annahme \(|x-y| < \delta\)} \\
+    < \gap & \delta \cdot \frac{\epsilon}{\delta} & \\
+    = \gap & \epsilon 
+\end{flalign*}
 Was zu zeigen war. \qed
 \end{document}
