@@ -1,0 +1,65 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[ngerman]{babel} 
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts} 
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titling}
+\usepackage{hyperref}
+
+
+\newcommand*{\qed}{\null\nobreak\hfill\ensuremath{\square}}
+\newcommand*{\puffer}{\text{ }\text{ }\text{ }\text{ }}
+\newcommand*{\gedanke}{\textbf{-- }}
+\newcommand*{\gap}{\text{ }}
+\newcommand*{\setDef}{\gap|\gap}
+\newcommand*{\vor}{\textbf{Vor.:} \gap}
+\newcommand*{\beh}{\textbf{Beh.:} \gap}
+\newcommand*{\bew}{\textbf{Bew.:} \gap}
+% Hab länger gebraucht um zu realisieren, dass das ne gute Idee wäre
+\newcommand*{\R}{\mathbb R}
+
+
+\pagestyle{plain}
+\allowdisplaybreaks
+
+\setlength{\droptitle}{-14em}
+\setlength{\jot}{12pt}
+
+
+\title{Mathematik für die Informatik C\\Hausaufgabenserie 3}
+\author{Henri Heyden, Nike Pulow \\ \small stu240825, stu239549}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+\doublespacing
+
+\subsection*{A1}
+\vor \\
+\beh \\
+\bew \\
+\subsection*{A2}
+\vor \\ 
+\beh \\
+\bew \\ \pagebreak
+\subsection*{A3}
+\vor \(\Omega := [0,1], \gap f: \Omega \rightarrow \R, x\mapsto \sqrt{x}, \gap\) \\
+\beh \(f\) ist gleichmäßig stetig aber nicht Lipschitz-stetig. Also sind nicht alle gleichmäßig stetigen Funktionen Lipschitz-stetig.  \\
+\bew \(f\) ist gleichmäßig stetig, da \(f\) stetig (MatheB) auf eine kompakte Menge ist, denn \(\Omega\) ist beschränkt und abgeschlossen.\\
+Wir werden nun zeigen, dass \(f\) jedoch nicht Lipschitz-stetig ist, also \\
+\(\forall L > 0: \exists x,y \in \Omega: |\sqrt{x} - \sqrt{y}| > L \cdot |x - y|\). \\
+Sei \(L > 0\) beliebig und \(y := 0, x \ne 0\). Dann gilt: 
+\begin{flalign*}
+    & |\sqrt{x}| > L \cdot |x| & \text{| \(x > 0\)} \\
+    \Longleftrightarrow & \sqrt{x} > L \cdot x & \text{| \(\cdot x^{-1}, \gap \cdot^{-1}\)} \\
+    \Longleftrightarrow & \frac{x}{\sqrt{x}} < L^{-1} & \text{| \(\sqrt{x} = x^\frac{1}{2}\), Potenzgesetze} \\
+    \Longleftrightarrow & \sqrt{x} < L^{-1} & \text{| \(\cdot^2, x > 0\)} \\
+    \Longleftrightarrow & x < L^{-2}
+\end{flalign*}
+Somit existiert für jedes \(L > 0\) mindestens ein \(x\), sodass das Lipschitz-Kriterium bricht, also ist \(f\) nicht Lipschitz-stetig, \gedanke was zu zeigen war. \qed
+\end{document}
