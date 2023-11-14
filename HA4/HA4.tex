@@ -27,6 +27,7 @@
 
 \setlength{\droptitle}{-14em}
 \setlength{\jot}{12pt}
+\setlength{\hoffset}{-2cm}
 
 
 \title{Mathematik für die Informatik C\\Hausaufgabenserie 4}
@@ -40,9 +41,26 @@
 \doublespacing
 
 \subsection*{A1}
-\vor \\
-\beh \\
-\bew \\
+\vor \(0 < a < b < \pi\)\\
+\beh \(\int_a^b \cos(x) \cdot \ln\left(\sqrt{1 - \cos^2(x)}\right) = \left[\sin(x) \cdot \left(\ln(\sin(x)) - 1\right)\right]_a^b\)\\
+\bew Es gilt: 
+\begin{flalign*}
+    & \int_a^b \cos(x) \cdot \ln\left(\sqrt{1 - \cos^2(x)}\right) & \text{| Logarithmusgesetze} \\
+    & = \int_a^b \cos(x) \cdot \frac{1}{2}\ln\left(1 - \cos^2(x)\right) & \text{| \(\sin^2(x) + \cos^2(x) = 1\) (MatheB)} \\
+    & = \int_a^b \cos(x) \cdot \frac{1}{2}\ln\left(1 - (1 - \sin^2(x))\right) & \text{| Klammern auflösen} \\
+    & = \int_a^b \cos(x) \cdot \frac{1}{2}\ln\left(\sin^2(x)\right) & \text{| Logarithmusgesetze} \\
+    & = \int_a^b \cos(x) \cdot \frac{1}{2} \cdot 2\ln\left(\sin(x)\right) & \\
+    & = \int_a^b \cos(x) \cdot \ln\left(\sin(x)\right) & \\
+    & = \int_a^b \ln\left(\sin(x)\right) \cdot \cos(x) & \text{| Partielle Integration} \\
+    & = \left[\ln(\sin(x)) \cdot \sin(x)\right]_a^b - \int_a^b \left(\left(\frac{d}{dx}\ln(\sin(x))\right) \cdot \sin(x)\right) & \text{| Kettenregel} \\
+    & = \left[\ln(\sin(x)) \cdot \sin(x)\right]_a^b - \int_a^b \left(\left(\frac{1}{\sin(x)} \cdot \frac{d}{dx}\sin(x)\right) \cdot \sin(x)\right) & \\
+    & = \left[\ln(\sin(x)) \cdot \sin(x)\right]_a^b - \int_a^b \left(\left(\frac{1}{\sin(x)} \cdot \cos(x)\right) \cdot \sin(x)\right) & \\
+    & = \left[\ln(\sin(x)) \cdot \sin(x)\right]_a^b - \int_a^b\cos(x) & \\
+    & = \left[\ln(\sin(x)) \cdot \sin(x)\right]_a^b - \left[\sin(x)\right]_a^b & \text{| Reinziehen} \\
+    & = \left[\ln(\sin(x)) \cdot \sin(x) - \sin(x)\right]_a^b & \text{| Ausklammern} \\
+    & = \left[\sin(x) \cdot \left(\ln(\sin(x)) - 1\right)\right]_a^b
+\end{flalign*}
+\gedanke was zu zeigen war. \qed
 \subsection*{A2}
 \vor \\ 
 \beh \\
