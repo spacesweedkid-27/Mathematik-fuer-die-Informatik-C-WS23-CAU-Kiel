@@ -62,9 +62,29 @@
 \end{flalign*}
 \gedanke was zu zeigen war. \qed
 \subsection*{A2}
-\vor \\ 
-\beh \\
-\bew \\ \pagebreak
+\vor \(a,b \in ]0, +\infty[, \gap f:\R \rightarrow \R_+, x \mapsto \frac{e^{-ax^2}}{x^2+b^2}\) \\ 
+\beh \(\int_{-\infty}^{+\infty} f(x)\) konvergiert für alle \(a,b\).\\
+\bew Für \(x \in \R\) gilt: \(f(x) = f(-x)\) da \(x^2 = (-x)^2\) gilt, weswegen wir nur zeigen müssen, dass \(2 \cdot \int_0^{+\infty} f(x)\) konvergiert.\\
+Um diese Konvergenz zu zeigen, wenden wir das Integralkriterium an, wir werden also zeigen, dass \(\sum_n^{+\infty} = f(x)\) konvergiert. \\
+\(\sum_n^{+\infty} = f(x)\) ist nichts anderes als die Reihe über \(f(x)\), wir zeigen, dass diese Reihe absolut konvergiert mithilfe des Quotientenkriteriums:
+\begin{flalign*}
+    & \lim_{n}\left|\frac{f(n)}{f(n-1)}\right| & \\
+    = & \lim_{n}\left|\frac{\frac{e^{-an^2}}{n^2+b^2}}{\frac{e^{-a(n-1)^2}}{(n-1)^2+b^2}}\right| & \text{| Bruch umstellen} \\
+    = & \lim_{n}\left|\frac{e^{-an^2 } \cdot ((n-1)^2 + b^2)}{e^{-a(n-1)^2} \cdot (n^2 +b^2)}\right| & \text{| Potenzgesetze} \\
+    = & \lim_{n}\left|\frac{e^{-an^2 } \cdot e^{a(n-1)^2} \cdot (n-1)^2 + b^2}{n^2 +b^2}\right| & \text{| Bruch aufteilen} \\
+    = & \lim_{n}\left|e^{-an^2 } \cdot e^{a(n-1)^2} \cdot \frac{(n-1)^2 + b^2}{n^2 +b^2}\right| & \text{| Binomische Formel} \\
+    = & \lim_{n}\left|e^{-an^2 } \cdot e^{a(n-1)^2} \cdot \frac{n^2 - 2n + 1 + b^2}{n^2 +b^2}\right| & \text{| Bruch aufteilen} \\
+    = & \lim_{n}\left|e^{-an^2 } \cdot e^{a(n-1)^2} \cdot \frac{n^2 + b^2}{n^2 +b^2} - \frac{- 2n + 1}{n^2 + b^2}\right| & \text{| Rechter Term konvergiert zu 0} \\
+    = & \lim_{n}\left|e^{-an^2 } \cdot e^{a(n-1)^2} \right| & \text{| Potenzgesetze} \\
+    = & \lim_{n}\left|e^{-an^2 + a(n-1)^2} \right| & \text{| Binomische Formel} \\
+    = & \lim_{n}\left|e^{-an^2 + a(n^2 - 2n + 1)} \right| & \text{| Aufklammern lol} \\
+    = & \lim_{n}\left|e^{-an^2 + an^2 - a2n + a} \right| & \text{| Vereinfachen} \\
+    = & \lim_{n}\left|e^{- a2n + a} \right| & \text{| \(a > 0\)} \\
+    = & \gap 0
+    < & 1
+\end{flalign*}
+Also konvergiert die Reihe über \(f(x)\) absolut, wodurch das Integral konvergiert\footnote[1]{Konvergiert das Integral dann auch absolut?} \gedanke was zu zeigen war. \qed
+\pagebreak
 \subsection*{A3}
 \vor \(\Omega := [0,1], \gap f: \Omega \rightarrow \R, x\mapsto \sqrt{x}, \gap\) \\
 \beh \(f\) ist gleichmäßig stetig aber nicht Lipschitz-stetig. Also sind nicht alle gleichmäßig stetigen Funktionen Lipschitz-stetig.  \\
