@@ -68,5 +68,14 @@ Komplement \(]-\infty,0]\) nicht offen ist und es sich bei \(B\) somit nicht um 
 abgeschlossenes Intervall handelt. \qed
 
 \subsection*{A3}
-\vor Definiere \(\)
+\vor \\ 
+Definiere \(A:=(\mathbb{R},d)\) mit \(d:\mathbb{R} \times \mathbb{R} \rightarrow [0,\pi[, (x,y) \mapsto \vert atan(x) - atan(y) \vert\).\\
+\({(x_n)}_n \in S(A)\) ist eine Cauchyfolge.\\
+\vor \(A\) ist vollständig.\\
+\bew Es gilt für \({(x_n)}_n\): \(\forall \epsilon > 0 \exists n_0 \forall n,k \geq n_0 : d (x_n,x_k)< \epsilon\), 
+also auch \(d(x_n,x_k) = \vert atan(x_n) - atan(x_k)\vert < \epsilon\). Bekannt ist, dass \\
+\(atan: \mathbb{R} \rightarrow ]-\frac{\pi}{2}, \frac{\pi}{2}[\) stetig ist, folglich konvergiert 
+\(atan(x_n)\), wir definieren also: \(p:=lim_{n \rightarrow \infty} atan (x_n)\).\\
+Es existiert also ein Grenzwert \(p \in A\) für eine beliebige Cauchyfolge \({(x_n)}_n \in S(A)\). Nach 
+Definition von vollständigen Räumen ist also \(A\) vollständig. \qed
 \end{document}
