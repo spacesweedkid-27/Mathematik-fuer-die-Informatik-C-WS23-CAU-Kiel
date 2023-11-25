@@ -1,0 +1,72 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[ngerman]{babel} 
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts} 
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titling}
+\usepackage{hyperref}
+
+
+\newcommand*{\qed}{\null\nobreak\hfill\ensuremath{\square}}
+\newcommand*{\puffer}{\text{ }\text{ }\text{ }\text{ }}
+\newcommand*{\gedanke}{\textbf{-- }}
+\newcommand*{\gap}{\text{ }}
+\newcommand*{\setDef}{\gap|\gap}
+\newcommand*{\vor}{\textbf{Vor.:} \gap}
+\newcommand*{\beh}{\textbf{Beh.:} \gap}
+\newcommand*{\bew}{\textbf{Bew.:} \gap}
+% Hab länger gebraucht um zu realisieren, dass das ne gute Idee wäre
+\newcommand*{\R}{\mathbb R}
+
+
+\pagestyle{plain}
+\allowdisplaybreaks
+
+\setlength{\droptitle}{-14em}
+\setlength{\jot}{12pt}
+\setlength{\hoffset}{-2cm}
+
+
+\title{Mathematik für die Informatik C\\Hausaufgabenserie 5}
+\author{Henri Heyden, Nike Pulow \\ \small stu240825, stu239549}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+\doublespacing
+
+\subsection*{A1}
+\vor Definiere \(f : \mathbb{R} \rightarrow \mathbb{R}, x \mapsto
+\begin{cases}
+    e^x & x < 0\\
+    1-x & \text{sonst}\\
+\end{cases}\)  und \(S=T=\mathbb{R}\).\\
+\beh \(f\) ist stetig.\\
+\bew Definiere \(A:=]- \infty, 0 [\) und \(B := [0,+ \infty[\) und bemerke \(S=A \cup B = \mathbb{R}\). 
+Nun zeigen wir, dass \(f |_A\) und \(f |_B\) stetig sind:\\
+(1) Für \(f |_A\) gilt: \\
+\(f(x) = e^x\) wegen der Funktionsdefinition und \(x<0\). Die Exponentialfunktion ist stetig auf 
+ganz \(\mathbb{R}\), das ist trivial, also insbesondere auch stetig auf \(A\).\\
+(2) Für \(f|_B\) gilt: \\
+\(f(x) = 1-x\) wegen der Funktionsdefinition und \(x \geq 0\). Offenbar ist \(f\) auf \(B\) also 
+eine lineare Funktion und deren Stetigkeit trivial.\\
+Da \(f\) sowohl auf \(A\), als auch auf \(B\) stetig ist, also auf allen Teilen von \(S\) 
+stetig ist, ist folglich auch \(f\) stetig. \qed
+
+\subsection*{A2}
+\vor \(A : = [0,1]\), \(\mathbb{R}\) ist ein metrischer Raum.\\
+\beh Nicht jede abgeschlossene Menge, die Teilmenge einer kompakten Mengen ist, ist auch kompakt.\\
+\bew \(A\) ist offenbar abgeschlossen, da ihr Komplement \(]-\infty,0[\cup]1,+\infty[\) offen ist, 
+und folglich kompakt, da \(A\) abgeschlossen und beschränkt ist. Definiere nun \(B:=]0,1]\). Es gilt 
+offenbar \(B \subset A\). Wie leicht erkennbar ist, ist \(B\) nicht kompakt, da das linksseitige 
+Komplement \(]-\infty,0]\) nicht offen ist und es sich bei \(B\) somit nicht um ein 
+abgeschlossenes Intervall handelt. \qed
+
+\subsection*{A3}
+\vor Definiere \(\)
+\end{document}
