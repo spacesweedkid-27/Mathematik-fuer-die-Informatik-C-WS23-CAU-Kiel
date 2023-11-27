@@ -10,6 +10,14 @@
 \usepackage{hyperref}
 
 
+\usepackage[
+    left = \glqq{},% 
+    right = \grqq{},% 
+    leftsub = \glq{},% 
+    rightsub = \grq{} %
+]{dirtytalk}
+
+
 \newcommand*{\qed}{\null\nobreak\hfill\ensuremath{\square}}
 \newcommand*{\puffer}{\text{ }\text{ }\text{ }\text{ }}
 \newcommand*{\gedanke}{\textbf{-- }}
@@ -66,14 +74,16 @@ Somit ist alles gezeigt, was zu zeigen war. \qed
 Also zeigen wir: \(\forall \alpha > 0: \exists f \in C[0,1]: \alpha \cdot ||f||_\infty > ||f||_1\). \\
 Wähle \(\alpha > 0\).\\
 Hier werden wir zwei Fälle unterscheiden, \textbf{1.:} \(\alpha > \frac{1}{2}\) und \textbf{2.:} \(\alpha \le \frac{1}{2}\) : \\
-Fall \textbf{1.:} \\
-Sei \(f \in C[0,1], x \mapsto -\alpha x + \alpha\), dann gilt: \\
+Fall \textbf{1.:} Sei \(f \in C[0,1], x \mapsto -\alpha x + \alpha\), dann gilt: \\
 \(\alpha \cdot ||f||_\infty = \alpha \cdot \sup_{x\in [0,1]}|f(x)| = \alpha \cdot \alpha = \alpha^2\),  da \(|f| = f\) gilt. \\
 Des Weiteren gilt: \(||f||_1 = \int_{0}^{1}|f(x)| = \int_{0}^{1}|-\alpha x + \alpha| = \int_{0}^{1}-\alpha x + \alpha = \left[-\frac{\alpha}{2}x^2+ ax\right]_0^1 = -\frac{\alpha}{2} + \alpha = \frac{\alpha}{2}\) \\
 Da \(a > \frac{1}{2}\), gilt: \(\frac{\alpha}{2} < \alpha^2\), also ist der erste Fall gezeigt. \\
-Fall \textbf{2.:} \\
-
-\subsubsection*{A3}
+Fall \textbf{2.:}\footnote[1]{Erst nach dem Aufschreiben ist dem \say{Autor} aufgefallen, dass folgendes sogar für jedes \(\alpha > 0\) gilt \dots toll.} \\
+Für \(\alpha \le \frac{1}{2}\) wählen wir \(f \in C[0,1], x \mapsto \sqrt[\alpha]{\alpha(1-x)}\). \\
+Dann ist \(f\) auch wirklich in \(C[0,1]\), größer 0 und streng monoton fallend mit Supremum \(f(0) = \sqrt[\alpha]{\alpha}\). \\
+Dann gilt: \(\alpha \cdot \sup_{x \in [0,1]}|f(x)| = \alpha \cdot \sqrt[\alpha]{\alpha} = \alpha^{\frac{1}{\alpha} + 1}\). \\
+Es ergibt sich durch Finden der Stammfunktion von \(f\) durch einmalige Substitution und die bekannten Integrationsmethoden von ganzrationalen Funktionen: \(\int_{0}^{1}|f| = \int_{0}^{1}f = \frac{\alpha^{\frac{1}{\alpha} + 1}}{\alpha + 1}\).\\
+Dann gilt aufgrund des Nenners \(> 1\): \(\frac{\alpha^{\frac{1}{\alpha} + 1}}{\alpha + 1} < \alpha^ {\frac{1}{\alpha} + 1}\), \gedanke was zu zeigen war. \qed \\
 \vor \\
 \beh \\
 \bew \\
