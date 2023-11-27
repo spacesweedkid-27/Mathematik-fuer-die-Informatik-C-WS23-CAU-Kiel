@@ -1,0 +1,80 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[ngerman]{babel} 
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts} 
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titling}
+\usepackage{hyperref}
+
+
+\newcommand*{\qed}{\null\nobreak\hfill\ensuremath{\square}}
+\newcommand*{\puffer}{\text{ }\text{ }\text{ }\text{ }}
+\newcommand*{\gedanke}{\textbf{-- }}
+\newcommand*{\gap}{\text{ }}
+\newcommand*{\setDef}{\gap|\gap}
+\newcommand*{\vor}{\textbf{Vor.:} \gap}
+\newcommand*{\beh}{\textbf{Beh.:} \gap}
+\newcommand*{\bew}{\textbf{Bew.:} \gap}
+% Hab länger gebraucht um zu realisieren, dass das ne gute Idee wäre
+\newcommand*{\R}{\mathbb R}
+
+\newcommand{\dr}{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny Dreieck.}}}{\le}}}
+
+\pagestyle{plain}
+\allowdisplaybreaks
+
+\setlength{\droptitle}{-14em}
+\setlength{\jot}{12pt}
+
+\title{Mathematik für die Informatik C\\Hausaufgabenserie 6}
+\author{Henri Heyden, Nike Pulow \\ \small stu240825, stu239549}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+\doublespacing
+\subsubsection*{A1}
+\vor \(a,b \in \R, a < b, \gap \gap C[a,b] := \{f:[a,b] \rightarrow \R \setDef f \text{ ist stetig}\},\) \\
+\puffer\puffer\gap\(||\cdot||_1 : C[a,b] \rightarrow \R_{\ge 0}, f \mapsto \int |f|\) \\
+\beh \(||\cdot||_1\) ist Norm auf \(C[a,b]\) \\
+\bew Wir teilen die Aussage in drei Abschnitte auf: \\
+\textbf{1):} \(\forall f \in C[a,b]: ||f||_1 = 0 \Leftrightarrow f = 0\), wobei \(0 : C[a,b], x \mapsto 0\) gemeint ist. \\
+\textbf{2):} \(\forall f \in C[a,b], \lambda \in \R: ||\lambda f||_1 = |\lambda| \cdot ||f||_1\) \\
+\textbf{3):} \(\forall f,g \in C[a,b]: ||f + g|| \le ||f||_1 + ||g||_1\) \\
+Forab bemerke, dass \(||\cdot||_1\) wohldefiniert ist, da jede Funktion in \(C[a,b]\) stetig auf eine kompakte, also beschränkte und abgeschlossene Menge und somit integrierbar. \\
+Wir fangen mit der ersten Aussage an: \\
+\textbf{1):} Es gilt: \(0 = \int 0 = \int |0| = ||0||_1\).\\
+Um die Eindeutigkeit zu zeigen, nehme an \(0 \ne f \in C[a,b]\). \\
+Dann existiert ein Intervall \(I \subseteq [a,b]\), sodass \(f^\rightarrow(I) > 0\) gilt.\\
+Sei \(\overline{I} := [a,b] \setminus I\), dann gilt:
+\(||f||_1 = \int|f| = \int|f_{|I}| + \int|f_{|\overline{I}}| \ge \int|f_{|I}| > 0\) \\
+Somit ist der erste Teil gezeigt. Fahre mit dem zweiten Teil fort:\\
+\textbf{2):} Es gilt: \(||\lambda f||_1 = \int|\lambda f| = \int \left(|\lambda| \cdot |f|\right) = |\lambda| \cdot \int |f| = |\lambda| \cdot ||f||_1\)
+Und nun die letzte Aussage: \\
+\textbf{3):} Es gilt: \(||f + g||_1 = \int|f + g| \gap \dr \gap \int\left(|f| + |g|\right) = \int|f| + \int|g| = ||f||_1 + ||g||_1\) \\
+Somit ist alles gezeigt, was zu zeigen war. \qed
+\pagebreak
+\subsubsection*{A2}
+\vor \(||\cdot||_\infty, ||\cdot||_1\) Normen über \(C[0,1]\), wie auf Serie definiert,\\
+\beh \(||\cdot||_\infty \text{ und } ||\cdot||_1\) sind nicht äquivalent. \\
+\bew Wir zeigen, dass \(\exists \alpha > 0: \forall f \in C[0,1]: \alpha \cdot ||f||_\infty \le ||f||_1\) nicht gilt, da somit die Aussage in Def. 4.18 (Äquivalente Normen) nicht gelten kann. \\
+Also zeigen wir: \(\forall \alpha > 0: \exists f \in C[0,1]: \alpha \cdot ||f||_\infty > ||f||_1\). \\
+Wähle \(\alpha > 0\).\\
+Hier werden wir zwei Fälle unterscheiden, \textbf{1.:} \(\alpha > \frac{1}{2}\) und \textbf{2.:} \(\alpha \le \frac{1}{2}\) : \\
+Fall \textbf{1.:} \\
+Sei \(f \in C[0,1], x \mapsto -\alpha x + \alpha\), dann gilt: \\
+\(\alpha \cdot ||f||_\infty = \alpha \cdot \sup_{x\in [0,1]}|f(x)| = \alpha \cdot \alpha = \alpha^2\),  da \(|f| = f\) gilt. \\
+Des Weiteren gilt: \(||f||_1 = \int_{0}^{1}|f(x)| = \int_{0}^{1}|-\alpha x + \alpha| = \int_{0}^{1}-\alpha x + \alpha = \left[-\frac{\alpha}{2}x^2+ ax\right]_0^1 = -\frac{\alpha}{2} + \alpha = \frac{\alpha}{2}\) \\
+Da \(a > \frac{1}{2}\), gilt: \(\frac{\alpha}{2} < \alpha^2\), also ist der erste Fall gezeigt. \\
+Fall \textbf{2.:} \\
+
+\subsubsection*{A3}
+\vor \\
+\beh \\
+\bew \\
+\end{document}
