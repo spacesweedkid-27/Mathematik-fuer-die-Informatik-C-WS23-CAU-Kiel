@@ -8,7 +8,7 @@
 \usepackage{amssymb}
 \usepackage{titling}
 \usepackage{hyperref}
-
+\usepackage{tikz}
 
 \usepackage[
     left = \glqq{},% 
@@ -28,6 +28,7 @@
 \newcommand*{\bew}{\textbf{Bew.:} \gap}
 % Hab länger gebraucht um zu realisieren, dass das ne gute Idee wäre
 \newcommand*{\R}{\mathbb R}
+\newcommand*{\fillcirc}{\tikz\draw[fill=black] (0,0) circle (.3ex);}
 
 \newcommand{\dr}{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny Dreieck.}}}{\le}}}
 
@@ -36,6 +37,12 @@
 
 \setlength{\droptitle}{-14em}
 \setlength{\jot}{12pt}
+
+\newenvironment{noflalign*}
+ {\setlength{\abovedisplayskip}{0pt}\setlength{\belowdisplayskip}{0pt}%
+  \csname flalign*\endcsname}
+ {\csname endflalign*\endcsname\ignorespacesafterend}
+
 
 \title{Mathematik für die Informatik C\\Hausaufgabenserie 6}
 \author{Henri Heyden, Nike Pulow \\ \small stu240825, stu239549}
@@ -85,7 +92,42 @@ Dann gilt: \(\alpha \cdot \sup_{x \in [0,1]}|f(x)| = \alpha \cdot \sqrt[\alpha]{
 Es ergibt sich durch Finden der Stammfunktion von \(f\) durch einmalige Substitution und die bekannten Integrationsmethoden von ganzrationalen Funktionen: \(\int_{0}^{1}|f| = \int_{0}^{1}f = \frac{\alpha^{\frac{1}{\alpha} + 1}}{\alpha + 1}\).\\
 Dann gilt aufgrund des Nenners \(> 1\): \(\frac{\alpha^{\frac{1}{\alpha} + 1}}{\alpha + 1} < \alpha^ {\frac{1}{\alpha} + 1}\), \gedanke was zu zeigen war. \qed \pagebreak 
 \subsubsection*{A3}
-\vor \\
-\beh \\
-\bew \\
+\vor \(V\) Vektorraum über \(\R\) mit \(\dim(V) = n \in \mathbb{N}\), \(||\cdot||_2\) definiert, wie in der Vorlesung, also: \(||\cdot||_2 : V \rightarrow \mathbb{K}, v \mapsto \sqrt{\sum_{i = 0}^{n}v_i^2}\),\\
+des Weiteren sei definiert: \(\fillcirc : V^2 \rightarrow \R, (w, v) \mapsto \sum_{i = 1}^{n} v_iw_i\) \\
+\beh \(||\cdot||_2\) ist Norm. \\
+\bew Wieder spalten wir den Beweis in die drei Kriterien auf: \\
+\textbf{1):} \(\forall v \in V: ||v||_2 = 0 \Longleftrightarrow v = 0\) \\
+\textbf{2):} \(\forall v \in V, \lambda \in \R: ||\lambda v||_2 = |\lambda| \cdot ||v||_2\) \\
+\textbf{3):} \(\forall v,w \in V: ||v+w||_2 \le ||v||_2 + ||w||_2\) \\
+Fangen wir mit dem ersten Kriterium an: \\
+\textbf{1):}\\
+Erste Richtung: \say{\(\Leftarrow\)}: \\
+Es gilt: \(0 = \sqrt{0} = \sqrt{\sum_{i=1}^{n} 0} = ||0||_2\) \\
+Zweite Richtung: \say{\(\Rightarrow\)}: \\
+Zeige mittels Kontraposition. Sei \(v \in V, v \ne 0\), dann gilt folgendes: \\
+\(\exists j \in [n]: v_j \ne 0\). Für dieses \(j\) gilt dann folgendes:
+\begin{flalign*}
+    & \sqrt{\sum_{i=1}^{n}v_i^2} = \sqrt{\sum_{i=1}^{j}v_i^2 + v_j^2 + \sum_{i=j+1}^{n}v_i^2} & \\
+    \ge & \sqrt{v_j^2} > 0  
+\end{flalign*} Somit ist \textbf{1)} gezeigt. \pagebreak \\
+\textbf{2):} Wähle \(v \in V, \lambda \in \R\). Dann gilt folgendes:
+\begin{noflalign*}
+    ||\lambda v||_2 &= \sqrt{\sum_{i=1}^{n}(\lambda v)^2} = \sqrt{\sum_{i=1}^{n}\lambda^2 v^2} \\
+    &= \sqrt{\lambda^2 \cdot \sum_{i=1}^{n}v^2} = \lambda \cdot \sqrt{\sum_{i=1}^{n}v^2} = \lambda \cdot ||v||_2
+\end{noflalign*} 
+Somit ist das zweite Kriterium auch gezeigt. Nun bleibt das Letzte. \\
+\textbf{3):} Seien \(v,w \in V\). Dann gilt:
+\singlespacing
+\begin{noflalign*}
+    & ||v + w||_2^2 = \sum_{i = 1}^{n}(v_i + w_i)^2 & \text{| Binomische Formel} \\
+    = & \sum_{i = 1}^{n}(v_i^2 + w_i^2 + 2v_iw_i) & \text{| Summen rausziehen} \\
+    = & \sum_{i = 1}^{n} v_i^2 + \sum_{i = 1}^{n} w_i^2 + \sum_{i = 1}^{n}2v_iw_i & \text{| Def. \fillcirc} \\
+    = & \sum_{i = 1}^{n} v_i^2 + \sum_{i = 1}^{n} w_i^2 + 2 \cdot v \gap\fillcirc\gap w & \text{| Def. \(|\cdot|\)} \\
+    \le & \sum_{i = 1}^{n} v_i^2 + \sum_{i = 1}^{n} w_i^2 + 2 \cdot |v \gap\fillcirc\gap w| & \text{| Magie} \\
+    \le & \sum_{i = 1}^{n} v_i^2 + \sum_{i = 1}^{n} w_i^2 + 2 \cdot ||v||_2 \cdot ||w||_2 & \text{| Def. \(||\cdot||_2\)} \\
+    = & ||v||_2^2 + ||w||_2^2 + 2 \cdot ||v||_2 \cdot ||w||_2 & \text{| Binomische Formeln} \\
+    = & (||v||_2 + ||w||_2)^2
+\end{noflalign*}
+\doublespacing
+Dann gilt \(||v + w||_2 \le ||v||_2 + ||w||_2\), da \(\text{img}(||\cdot||_2) = \R_{\ge 0}\), was gilt, da die Summe positiv ist und somit die Wurzel dies auch ist.\footnote[2]{Interessanterweise sieht man hier, dass dies nicht für Vektorräume über \(\mathbb C\) funktioniert, da die Wurzel negativ sein kann.}
 \end{document}
