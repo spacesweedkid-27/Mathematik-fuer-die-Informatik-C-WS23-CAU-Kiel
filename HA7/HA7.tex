@@ -1,0 +1,90 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[ngerman]{babel} 
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts} 
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titling}
+\usepackage{hyperref}
+
+
+\newcommand*{\qed}{\null\nobreak\hfill\ensuremath{\square}}
+\newcommand*{\puffer}{\text{ }\text{ }\text{ }\text{ }}
+\newcommand*{\gedanke}{\textbf{-- }}
+\newcommand*{\gap}{\text{ }}
+\newcommand*{\setDef}{\gap|\gap}
+\newcommand*{\vor}{\textbf{Vor.:} \gap}
+\newcommand*{\beh}{\textbf{Beh.:} \gap}
+\newcommand*{\bew}{\textbf{Bew.:} \gap}
+% Hab länger gebraucht um zu realisieren, dass das ne gute Idee wäre
+\newcommand*{\R}{\mathbb R}
+
+\newenvironment{noalign*}
+ {\setlength{\abovedisplayskip}{0pt}\setlength{\belowdisplayskip}{0pt}%
+  \csname flalign*\endcsname}
+ {\csname endflalign*\endcsname\ignorespacesafterend}
+
+
+\pagestyle{plain}
+\allowdisplaybreaks
+
+\setlength{\droptitle}{-14em}
+\setlength{\jot}{12pt}
+
+\title{Mathematik für die Informatik C\\Hausaufgabenserie 7}
+\author{Henri Heyden, Nike Pulow \\ \small stu240825, stu239549}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+\doublespacing
+\subsubsection*{A1}
+\vor \(f : \R \rightarrow \R^2, (x,y) \mapsto
+\begin{cases}
+    xy\cdot \frac{x^2-y^2}{x^2+y^2} & (x,y) \ne (0,0)\\
+    0 & \text{sonst}
+\end{cases}\) \\
+\beh \(f\) ist partiell differenzierbar in \(\R^2\) mit:\\
+\[\delta_1f(x,y) = \begin{cases}
+    \frac{y \cdot (x^4+4x^2y^2-y^4)}{(x^2+y^2)^2}& (x,y) \ne (0,0) \\
+    0 & \text{sonst}
+\end{cases}\] und:\\
+\[\delta_2f(x,y) = \begin{cases}
+    \frac{x \cdot (x^4-4x^2y^2-y^4)}{(x^2+y^2)^2}& (x,y) \ne (0,0) \\
+    0 & \text{sonst}
+\end{cases}\]\\ 
+\bew Beachte für \(v \in \R^2 \setminus \{(0,0)\}\):\\
+Es gilt: \(f = \pi_1\pi_2 \cdot \frac{\pi_1^2 - \pi_2^2}{\pi_1^2 + \pi_2^2}\) Somit ist \(f\) nach dem Kombinationssatz partiell differenzierbar auf \(\R^2 \setminus \{(0,0)\}\), da diese Menge offen ist. \\
+Dann folgt aus der Quotientenregel und einmaligem Ausklammern die Behauptung für Differenzialwerte von \(f(x,y)\) mit \((x,y) \in \R^2 \setminus \{(0,0)\}\). \pagebreak \\
+Nun für \((x,y) = (0,0)\): \\
+\textbf{Fall 1:} \(x \rightarrow 0, y = 0\)
+\begin{noalign*}
+      & \lim_{x \rightarrow 0} \left(\frac{f(x,0) - (f(0,0) + 0)}{x - 0}\right) & \text{| \(f(0,0) = 0\)} \\
+    = & \lim_{x \rightarrow 0} \left(\frac{f(x,0)}{x}\right) & \text{| Einsetzen} \\
+    = & \lim_{x \rightarrow 0} \left(\frac{x \cdot 0 \cdot \frac{x^2-0}{x^2+0}}{x}\right) & \text{| Vereinfachen} \\
+    = & \lim_{x \rightarrow 0} 0 \cdot 1 \\
+    = & 0
+\end{noalign*}
+\textbf{Fall 2:} \(y \rightarrow 0, x = 0\)
+\begin{noalign*}
+      & \lim_{y \rightarrow 0} \left(\frac{f(0,y) - (f(0,0) + 0)}{|0 - y|}\right) & \text{| \(f(0,0) = 0\)} \\
+    = & \lim_{y \rightarrow 0} \left(\frac{f(0,y)}{y}\right) & \text{| Einsetzen} \\
+    = & \lim_{y \rightarrow 0} \left(\frac{y \cdot 0 \cdot \frac{-y^2}{y^2}}{y}\right) & \text{| Vereinfachen} \\
+    = & \lim_{y \rightarrow 0} 0 \cdot -1 \\
+    = & 0
+\end{noalign*}
+Somit ist die Behauptung für Differenzialwerte von \(f(x,y)\) mit\\
+\((x,y) \in \{(0,0)\}\) auch gezeigt. Die Behauptung ist somit gezeigt. \qed
+\subsubsection*{A2}
+\vor \\
+\beh \\
+\bew \\
+\subsubsection*{A3}
+\vor \\
+\beh \\
+\bew \\
+\end{document}

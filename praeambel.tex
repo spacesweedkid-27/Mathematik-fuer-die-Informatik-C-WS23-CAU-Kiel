@@ -21,6 +21,11 @@
 % Hab länger gebraucht um zu realisieren, dass das ne gute Idee wäre
 \newcommand*{\R}{\mathbb R}
 
+\newenvironment{noalign*}
+ {\setlength{\abovedisplayskip}{0pt}\setlength{\belowdisplayskip}{0pt}%
+  \csname flalign*\endcsname}
+ {\csname endflalign*\endcsname\ignorespacesafterend}
+
 
 \pagestyle{plain}
 \allowdisplaybreaks
