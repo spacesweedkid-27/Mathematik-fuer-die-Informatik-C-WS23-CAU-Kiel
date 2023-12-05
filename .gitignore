@@ -7,3 +7,4 @@ praeambel.out
 **/*.fls
 **/*.fdb_latexmk
 **/*.aux
+**/*(busy)
