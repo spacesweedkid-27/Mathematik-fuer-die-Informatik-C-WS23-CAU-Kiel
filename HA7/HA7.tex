@@ -20,6 +20,7 @@
 \newcommand*{\bew}{\textbf{Bew.:} \gap}
 % Hab länger gebraucht um zu realisieren, dass das ne gute Idee wäre
 \newcommand*{\R}{\mathbb R}
+\newcommand{\bld}[1]{\mbox{\boldmath \(#1\)}}
 
 \newenvironment{noalign*}
  {\setlength{\abovedisplayskip}{0pt}\setlength{\belowdisplayskip}{0pt}%
@@ -93,9 +94,26 @@ Es ergibt sich folgender Grenzwert:
     = & \lim_{\tilde{v} \rightarrow v} \left(\frac{0}{||\tilde{v} - v||_V}\right) \\
     = & 0
 \end{noalign*}
-Also ist \(\phi\) Differenzialquotient von \(f\). \qed
+Also ist \(\phi\) Differenzialquotient von \(f\). \qed \pagebreak
 \subsubsection*{A3}
-\vor \\
-\beh \\
-\bew \\
+\vor Seien \(V, W\) endlich dimensionaler Vektorräume, \(\Omega \subseteq V\), \(v\) Basishäufungspunkt von \(\Omega\) in \(V\) mit Basis \(B\) und Koeffizientenfolge \((t_k)_k\) und \(f : \Omega \rightarrow W\) \((V,W)\text{-differenzierbar}\) in \(v\) mit Ableitungen \(\phi, \psi\).\\
+\beh \(\phi = \psi\) \\
+\bew Nehme die Kontraposition an, also sei \(\phi \ne \psi\).\\
+Sei \(x \in B\) so, dass \(\psi(x) \ne \phi(x)\) gilt. Da \(v\) BHP\footnote[1]{Basishäufungspunkt} von \(\Omega\) ist, ist \(0\) BHP von \(\Omega - v\), da \(\forall b \in B: (t_k \cdot (b + x))_k \in \mathcal S((\Omega - v) \setminus \{0\})\) gilt. Es gilt unter anderem \(\text{span}(B) = \text{span}(B + x)\), da \(x\) sich als Linearkombination der Basisvektoren darstellen lässt\footnote[2]{In diesem Fall ist das die jeweilige Basiskomponente.}. Es gilt: \(\lim_{k} t_k \cdot (b + x) = 0_V\) \\
+Dann gilt für \(b = x\):
+\begin{noalign*}
+    0 = & \lim_{k} \left(\frac{f(v+t_k \cdot (b + x)) - (f(v) + \phi(t_k \cdot (b+x)))}{||t_k \cdot (b+x)||}\right)\\
+      - & \lim_{k} \left(\frac{f(v+t_k \cdot (b + x)) - (f(v) + \psi(t_k \cdot (b+x)))}{||t_k \cdot (b+x)||}\right) & \text{| Kombinationssatz Limes, \(x = b\)} \\
+      = & \lim_{k} (\frac{f(v+t_k \cdot 2x) - (f(v) + \phi(t_k \cdot 2x))}{||t_k \cdot 2x||} \\
+      & \puffer - \frac{f(v+t_k \cdot 2x) - (f(v) + \psi(t_k \cdot 2x))}{||t_k \cdot 2x||}) & \text{| Kürzen über Brüche, Rausziehen} \\
+      = & \lim_{k} \left(\frac{\psi(t_k \cdot 2x) - \phi(t_k \cdot 2x)}{|t_k| \cdot ||2x||}\right) & \text{| Homogenität} \\
+      = & \lim_{k} \left(\frac{t_k \cdot \psi(2x) - t_k \cdot \phi(2x)}{|t_k| \cdot ||2x||}\right) & \text{| Ausklammern, Klammern auflösen} \\
+      = & \lim_{k} \left(\frac{t_k \cdot (\psi(2x) - \phi(2x))}{|t_k| \cdot ||2x||}\right) & \text{| Homogenität} \\
+      = & \lim_{k} \left(\frac{2t_k \cdot (\psi(x) - \phi(x))}{|t_k| \cdot ||2x||}\right) & \text{| \(\frac{t_k}{|t_k|} \rightarrow \pm 1\) für \((t_k)_k \in \mathcal S(\R_\pm)\)} \\
+      = & \pm\lim_{k} \left(\frac{2 \cdot (\psi(x) - \phi(x))}{||2x||}\right) & \text{| Keine Folge übrig} \\
+      = & \pm \frac{2 \cdot (\psi(x) - \phi(x))}{||2x||} & \text{| \(\phi(x) \ne \psi(x)\), \(||2x|| > 0\)} \\
+      \ne & 0
+\end{noalign*}
+Somit wurde die Annahme dass \(\phi\) und \(\psi\) verschiedene Ableitungen von \(f\) sind ad absurdum geführt. \\
+Hiermit ist die Gegenaussage, also was zu zeigen war gezeigt. \qed
 \end{document}
