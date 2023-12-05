@@ -80,9 +80,20 @@ Nun für \((x,y) = (0,0)\): \\
 Somit ist die Behauptung für Differenzialwerte von \(f(x,y)\) mit\\
 \((x,y) \in \{(0,0)\}\) auch gezeigt. Die Behauptung ist somit gezeigt. \qed
 \subsubsection*{A2}
-\vor \\
-\beh \\
-\bew \\
+\vor \(V,W\) sind normierte Räume, \(\phi \in \text L(V,W)\), \(b \in W\),\\
+\puffer\puffer\gap\(f : V \rightarrow W, v \mapsto \phi(v) + b\) \\
+\beh \(f\) ist differenzierbar für alle \(v \in V\) mit \(D_{V,W}f(v) = \phi\) \\
+\bew Da \(f = \phi + b\) gilt (hier \(b\) als Konstante Funktion), und \(\phi, b\) differenzierbar sind, ist \(f\) differenzierbar.\\
+Es ergibt sich folgender Grenzwert:
+\begin{noalign*}
+      & \lim_{\tilde{v} \rightarrow v} \left(\frac{f(\tilde{v}) - (f(v) + \phi(\tilde{v} - v))}{||\tilde{v} - v||_V}\right) & \text{| Einsetzen} \\
+    = & \lim_{\tilde{v} \rightarrow v} \left(\frac{\phi(\tilde{v}) + b - (\phi(v) + b + \phi(\tilde{v} - v))}{||\tilde{v} - v||_V}\right) & \text{| Vereinfachen und ausklammern} \\
+    = & \lim_{\tilde{v} \rightarrow v} \left(\frac{\phi(\tilde{v}) - \phi(v) - \phi(\tilde{v} - v)}{||\tilde{v} - v||_V}\right) & \text{| Additivität, Homogenität, ausklammern} \\
+    = & \lim_{\tilde{v} \rightarrow v} \left(\frac{\phi(\tilde{v}) - \phi(v) - \phi(\tilde{v}) + \phi(v)}{||\tilde{v} - v||_V}\right) & \text{| Vereinfachen} \\
+    = & \lim_{\tilde{v} \rightarrow v} \left(\frac{0}{||\tilde{v} - v||_V}\right) \\
+    = & 0
+\end{noalign*}
+Also ist \(\phi\) Differenzialquotient von \(f\). \qed
 \subsubsection*{A3}
 \vor \\
 \beh \\
