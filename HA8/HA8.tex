@@ -20,6 +20,7 @@
 \newcommand*{\bew}{\textbf{Bew.:} \gap}
 % Hab länger gebraucht um zu realisieren, dass das ne gute Idee wäre
 \newcommand*{\R}{\mathbb R}
+\newcommand*{\grad}{\text{grad}}
 
 \newenvironment{noalign*}
  {\setlength{\abovedisplayskip}{0pt}\setlength{\belowdisplayskip}{0pt}%
@@ -45,6 +46,31 @@
 \doublespacing
 \subsubsection*{A1}
 \subsubsection*{A2}
+\vor Sei \(\phi: \R^3 \rightarrow \R, v \mapsto \dots\),\footnote[1]{Der Rest interessiert uns nicht, warum sehen wir später.}\\ \singlespacing
+\(f: \R^4 \rightarrow \R^5, \begin{bmatrix}
+    x \\ y \\ z \\ t
+\end{bmatrix} \mapsto \begin{bmatrix}
+    \dots \\ e^{-||(x,y,t)||^2} \\ \dots \\ \dots \\ \dots
+\end{bmatrix} + z\sum_{i=1}^{5}e_i + \phi(t,z,x)\sum_{i = 1, i \ne 2}^{5}e_i\) \gap \footnote[2]{Auch hier interessieren uns Teile nicht.} \\ \\
+\beh Es gilt:\\
+\puffer \(\grad_{f_2}(x,y,z,t) = \begin{bmatrix}
+    -2x \cdot e^{-x^2-y^2-t^2} \\ -2y \cdot e^{-x^2-y^2-t^2} \\ 1 \\ -2t \cdot e^{-x^2-y^2-t^2}
+\end{bmatrix}\) \\
+\bew Zuerst, sehen wir: \(z\sum_{i=1}^{5}e_i = z\begin{bmatrix}
+    1 \\ 1 \\ 1 \\ 1 \\ 1
+\end{bmatrix}\) \\ und: \(\phi(t,z,x)\sum_{i = 1, i \ne 2}^{5}e_i = \phi(t,z,x)\begin{bmatrix}
+    1 \\ 0 \\ 1 \\ 1 \\ 1
+\end{bmatrix}\) \\ \doublespacing \pagebreak \\
+Da wir die zweite Komponentenfunktion betrachten, gilt somit: \\
+\(f_2(x,y,z,t) = e^{-||(x,y,t)||^2} + z + 0 = e^{-(x^2+y^2+t^2)} + z = e^{-x^2-y^2-t^2} + z\).\footnote[3]{Hier sieht man warum die Teile uns egal sind: Da wir nur die zweite Komponentenfunktion betrachten, kürzt sich der Rest weg.} \\
+Nach den bekannten Ableitungsregeln ergeben sich folgende partielle Ableitungen:
+\begin{noalign*}
+    \delta_1f_2(x) & = -2x \cdot e^{-x^2-y^2-t^2} \\
+    \delta_2f_2(y) & = -2y \cdot e^{-x^2-y^2-t^2} \\
+    \delta_3f_2(z) & = 1 \\
+    \delta_4f_2(t) & = -2t \cdot e^{-x^2-y^2-t^2}
+\end{noalign*}
+Die Behauptung folgt. \qed
 \subsubsection*{A3}
 \vor \(\text R: \R \rightarrow \R^{2 \times 2}, \alpha \mapsto \begin{bmatrix}
     \cos(\alpha) & -\sin(\alpha) \\
