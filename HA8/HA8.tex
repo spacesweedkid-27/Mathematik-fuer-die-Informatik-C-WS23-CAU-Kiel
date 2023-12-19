@@ -22,6 +22,24 @@
 \newcommand*{\R}{\mathbb R}
 \newcommand*{\grad}{\text{grad}}
 
+% ¯\_(ツ)_/¯
+\usepackage{tikz}
+\newcommand{\shrug}[1][]{%
+\begin{tikzpicture}[baseline,x=0.8\ht\strutbox,y=0.8\ht\strutbox,line width=0.125ex,#1]
+\def\arm{(-2.5,0.95) to (-2,0.95) (-1.9,1) to (-1.5,0) (-1.35,0) to (-0.8,0)};
+\draw \arm;
+\draw[xscale=-1] \arm;
+\def\headpart{(0.6,0) arc[start angle=-40, end angle=40,x radius=0.6,y radius=0.8]};
+\draw \headpart;
+\draw[xscale=-1] \headpart;
+\def\eye{(-0.075,0.15) .. controls (0.02,0) .. (0.075,-0.15)};
+\draw[shift={(-0.3,0.8)}] \eye;
+\draw[shift={(0,0.85)}] \eye;
+% draw mouth
+\draw (-0.1,0.2) to [out=15,in=-100] (0.4,0.95); 
+\end{tikzpicture}}
+
+
 \newenvironment{noalign*}
  {\setlength{\abovedisplayskip}{0pt}\setlength{\belowdisplayskip}{0pt}%
   \csname flalign*\endcsname}
@@ -42,9 +60,9 @@
 
 \begin{document}
 \maketitle
-
+\vspace*{-2cm}
 \doublespacing
-\subsubsection*{A1}
+\subsubsection*{A1}\shrug\footnote[0]{Wir haben die Zulassung seit letzter Serie und wir waren jetzt beide 3 Wochen krank also deswegen nicht so viel Motivation btw. Zeit \dots Übrigens ja, jemand hat sich die Mühe gemacht, um einen \shrug-Befehl zu machen in tikz.}
 \subsubsection*{A2}
 \vor Sei \(\phi: \R^3 \rightarrow \R, v \mapsto \dots\),\footnote[1]{Der Rest interessiert uns nicht, warum sehen wir später.}\\ \singlespacing
 \(f: \R^4 \rightarrow \R^5, \begin{bmatrix}
@@ -60,17 +78,17 @@
     1 \\ 1 \\ 1 \\ 1 \\ 1
 \end{bmatrix}\) \\ und: \(\phi(t,z,x)\sum_{i = 1, i \ne 2}^{5}e_i = \phi(t,z,x)\begin{bmatrix}
     1 \\ 0 \\ 1 \\ 1 \\ 1
-\end{bmatrix}\) \\ \doublespacing \pagebreak \\
+\end{bmatrix}\) \\ \doublespacing \\
 Da wir die zweite Komponentenfunktion betrachten, gilt somit: \\
-\(f_2(x,y,z,t) = e^{-||(x,y,t)||^2} + z + 0 = e^{-(x^2+y^2+t^2)} + z = e^{-x^2-y^2-t^2} + z\).\footnote[3]{Hier sieht man warum die Teile uns egal sind: Da wir nur die zweite Komponentenfunktion betrachten, kürzt sich der Rest weg.} \\
-Nach den bekannten Ableitungsregeln ergeben sich folgende partielle Ableitungen:
+\(f_2(x,y,z,t) = e^{-||(x,y,t)||^2} + z + 0 = e^{-(x^2+y^2+t^2)} + z = e^{-x^2-y^2-t^2} + z\).\footnote[3]{Hier sieht man warum die Teile uns egal sind: Da wir nur die zweite Komponentenfunktion betrachten, kürzt sich der Rest weg.} \pagebreak \\
+Nach den bekannten Ableitungsregeln ergeben sich folgende partielle Ableitungen: \singlespacing
 \begin{noalign*}
     \delta_1f_2(x) & = -2x \cdot e^{-x^2-y^2-t^2} \\
     \delta_2f_2(y) & = -2y \cdot e^{-x^2-y^2-t^2} \\
     \delta_3f_2(z) & = 1 \\
     \delta_4f_2(t) & = -2t \cdot e^{-x^2-y^2-t^2}
-\end{noalign*}
-Die Behauptung folgt. \qed
+\end{noalign*} \doublespacing
+Die Behauptung folgt. \qed \vspace*{-0.4cm}
 \subsubsection*{A3}
 \vor \(\text R: \R \rightarrow \R^{2 \times 2}, \alpha \mapsto \begin{bmatrix}
     \cos(\alpha) & -\sin(\alpha) \\
