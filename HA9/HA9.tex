@@ -1,0 +1,121 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[ngerman]{babel} 
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts} 
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titling}
+\usepackage{hyperref}
+\usepackage{csquotes} % for \textquote{}
+% REMINDER: USE IEEEeqnarray* FOR ALINGMENTS%
+\usepackage{IEEEtrantools}
+\usepackage{stix}
+
+\newcommand*{\qed}{\null\nobreak\hfill\ensuremath{\square}}
+\newcommand*{\puffer}{\text{ }\text{ }\text{ }\text{ }}
+\newcommand*{\gedanke}{\textbf{-- }}
+\newcommand*{\gap}{\text{ }}
+\newcommand*{\setDef}{\gap|\gap}
+\newcommand*{\vor}{\textbf{Voraussetzung} \gap}
+\newcommand*{\beh}{\textbf{Behauptung} \gap}
+\newcommand*{\bew}{\textbf{Beweis} \gap}
+% Hab länger gebraucht um zu realisieren, dass das ne gute Idee wäre
+\newcommand*{\R}{\mathbb R}
+\newcommand*{\grad}{\text{grad}}
+\newcommand*{\J}{\textbf{J}}
+\newcommand*{\He}{\text{H}}
+\newcommand*{\LMIN}{\text{\scshape Lmin}}
+\newcommand*{\LMAX}{\text{\scshape Lmax}}
+
+% ¯\_(ツ)_/¯
+\usepackage{tikz}
+\newcommand{\shrug}[1][]{%
+\begin{tikzpicture}[baseline,x=0.8\ht\strutbox,y=0.8\ht\strutbox,line width=0.125ex,#1]
+\def\arm{(-2.5,0.95) to (-2,0.95) (-1.9,1) to (-1.5,0) (-1.35,0) to (-0.8,0)};
+\draw \arm;
+\draw[xscale=-1] \arm;
+\def\headpart{(0.6,0) arc[start angle=-40, end angle=40,x radius=0.6,y radius=0.8]};
+\draw \headpart;
+\draw[xscale=-1] \headpart;
+\def\eye{(-0.075,0.15) .. controls (0.02,0) .. (0.075,-0.15)};
+\draw[shift={(-0.3,0.8)}] \eye;
+\draw[shift={(0,0.85)}] \eye;
+% draw mouth
+\draw (-0.1,0.2) to [out=15,in=-100] (0.4,0.95); 
+\end{tikzpicture}}
+
+
+\pagestyle{plain}
+\allowdisplaybreaks
+
+\setlength{\droptitle}{-14em}
+\setlength{\jot}{12pt}
+
+\title{\scshape Mathematik für die Informatik C\\Hausaufgabenserie 9}
+\author{\scshape Henri Heyden, Nike Pulow \\ \small stu240825, stu239549}
+\date{}
+
+\renewcommand{\baselinestretch}{1.5} % singlehalfspacing
+
+\begin{document}
+\maketitle
+\subsubsection*{\scshape A1}
+\vor \\
+Sei \(\xi,\eta,a,b,c \in \R\) mit \(\xi \cdot \eta > 0\)\\
+und \(f: \R^2 \rightarrow \R, (x,y) \mapsto \xi(x-a)^2 + \eta(y-b)^2 + c\). \\
+\beh\\
+\(\LMAX(f) = \{(a,b)\}\), wenn \(\xi < 0\) und \(\LMIN(f) = \{(a,b)\}\), wenn \(\xi > 0\) \\
+\bew \\
+Nach dem Kombsatz. ist \(f\) eine \(\mathcal C^2\)-Funktion. \\
+Zunächst forme \(f\) um. Es gilt:
+
+% this space is important
+{
+    \setstretch{1}
+    \begin{IEEEeqnarray*}{rCl"l}
+        f(x,y) & = & \xi(x-a)^2 + \eta(y-b)^2 + c & \text{| Binom. Formeln} \\
+        & = & \xi(x^2 -2xa +a^2) + \eta(y^2-2yb+b^2) + c & \text{| Klammern auflösen} \\
+        & = & \xi x^2 -\xi 2xa +\xi a^2 + \eta y^2-\eta 2yb + \eta b^2 + c
+    \end{IEEEeqnarray*}
+    Dann gilt:
+    \begin{IEEEeqnarray*}{"lClCl}
+        \partial_1f(x) & = & 2\xi x - 2\xi a & = & 2\xi (x-a) \\
+        \partial_2f(y) & = & 2\eta y - 2\eta b & = & 2\eta (y-b)
+    \end{IEEEeqnarray*}
+    Des Weiteren gilt:
+    \begin{IEEEeqnarray*}{"lCl}
+        \partial_1\partial_1f(x) & = & 2\xi \\
+        \partial_2\partial_1f(y) & = & 0 \\
+        \partial_1\partial_2f(x) & = & 0 \\
+        \partial_2\partial_2f(y) & = & 2\eta
+    \end{IEEEeqnarray*}
+    Somit gilt: \(\He_f = \begin{bmatrix}
+        2\xi & 0 \\ 0 & 2\eta
+    \end{bmatrix}\) \\
+    Außerdem gilt:
+    \begin{IEEEeqnarray*}{"rClCrCl}
+        \partial_1f(x) & = & 0 & \Longleftrightarrow & x & = & a  \\
+        \partial_2f(y) & = & 0 & \Longleftrightarrow & y & = & b
+    \end{IEEEeqnarray*}
+}
+Dann gilt also \(\partial_1f(a) = \partial_2f(b) = 0\) somit ist \((a,b)\) kritische Stelle. \\\\
+\vspace*{-0.5cm}
+Es gilt:
+
+{   
+    \setstretch{1}
+    \begin{IEEEeqnarray*}{"rCl}
+        \He_f(a,b) & = & \begin{bmatrix}
+            2\xi & 0 \\ 0 & 2\eta
+        \end{bmatrix}
+    \end{IEEEeqnarray*}
+}
+und somit \(\det(\He_f(a,b)) = 2\xi \cdot 2\eta - 0\) \\
+Da \(\xi \cdot \eta > 0\) gilt \(\det(\He_f(a,b)) > 0\), also ist \(\He_f(a,b)\) definit. \\
+Somit gilt \((a,b) \in \LMAX(f)\), wenn \(\xi < 0\) \\
+und \((a,b) \in \LMIN\), wenn \(\xi > 0\). \\
+Die Behauptung folgt.
+\qed
+\end{document}
