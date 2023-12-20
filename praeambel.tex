@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper]{article}
+\documentclass[a4paper, 12pt]{article}
 
 \usepackage[ngerman]{babel} 
 \usepackage[T1]{fontenc}
@@ -8,7 +8,10 @@
 \usepackage{amssymb}
 \usepackage{titling}
 \usepackage{hyperref}
-
+\usepackage{csquotes} % for \textquote{}
+% REMINDER: USE IEEEeqnarray* FOR ALINGMENTS%
+\usepackage{IEEEtrantools}
+\usepackage{stix}
 
 \newcommand*{\qed}{\null\nobreak\hfill\ensuremath{\square}}
 \newcommand*{\puffer}{\text{ }\text{ }\text{ }\text{ }}
@@ -20,11 +23,25 @@
 \newcommand*{\bew}{\textbf{Bew.:} \gap}
 % Hab länger gebraucht um zu realisieren, dass das ne gute Idee wäre
 \newcommand*{\R}{\mathbb R}
+\newcommand*{\grad}{\text{grad}}
+\newcommand*{\J}{\textbf{J}}
 
-\newenvironment{noalign*}
- {\setlength{\abovedisplayskip}{0pt}\setlength{\belowdisplayskip}{0pt}%
-  \csname flalign*\endcsname}
- {\csname endflalign*\endcsname\ignorespacesafterend}
+% ¯\_(ツ)_/¯
+\usepackage{tikz}
+\newcommand{\shrug}[1][]{%
+\begin{tikzpicture}[baseline,x=0.8\ht\strutbox,y=0.8\ht\strutbox,line width=0.125ex,#1]
+\def\arm{(-2.5,0.95) to (-2,0.95) (-1.9,1) to (-1.5,0) (-1.35,0) to (-0.8,0)};
+\draw \arm;
+\draw[xscale=-1] \arm;
+\def\headpart{(0.6,0) arc[start angle=-40, end angle=40,x radius=0.6,y radius=0.8]};
+\draw \headpart;
+\draw[xscale=-1] \headpart;
+\def\eye{(-0.075,0.15) .. controls (0.02,0) .. (0.075,-0.15)};
+\draw[shift={(-0.3,0.8)}] \eye;
+\draw[shift={(0,0.85)}] \eye;
+% draw mouth
+\draw (-0.1,0.2) to [out=15,in=-100] (0.4,0.95); 
+\end{tikzpicture}}
 
 
 \pagestyle{plain}
@@ -33,15 +50,32 @@
 \setlength{\droptitle}{-14em}
 \setlength{\jot}{12pt}
 
-\title{Mathematik für die Informatik C\\Hausaufgabenserie n}
-\author{Henri Heyden, Nike Pulow \\ \small stu240825, stu239549}
+\title{\scshape Mathematik für die Informatik C\\Hausaufgabenserie \(\infty\)}
+\author{\scshape Henri Heyden, Nike Pulow \\ \small stu240825, stu239549}
 \date{}
 
+\renewcommand{\baselinestretch}{1.5} % singlehalfspacing
+%\renewcommand{\rmdefault}{Times}
 
 \begin{document}
 \maketitle
+\subsubsection*{\scshape Minecrap}
+Hello Ladies and Gentlemen! welcome to episode one of Jermacraft! the series where I play minecraft, this is going to be a single player let's play, and when I say \textquote{let's play} I use that term pretty loosely because I am an idiot in this game. You're gonna see lots of fails, your gonna see lots of triumphs, at least I'm hoping, so go grab yourself a nice hot cup of coffee, hot cup of coco. I got apple cider right here freshly brewed. Let me take a sip, ah that's some good cider!
 
-\doublespacing
-
-
+{   % USE GROUPS FOR GODS SAKE
+    \setstretch{1}
+    \begin{IEEEeqnarray*}{rCl"C}
+        \int f(x)dx & = & \text{Integral von \(f\)} & \text{| Wow aligning text} \\
+        &&& \text{\gap was never so easy} \\
+        \lim_n\frac{1}{n} & = & 0 & \shrug \\
+        \neg(\varphi \wedge \psi) & \Longleftrightarrow & \neg\varphi \vee \neg\psi & \text{| Some test text} \\
+        \J_f(x) & = & \begin{bmatrix}
+            1 &  x \\ y &  1
+        \end{bmatrix}
+    \end{IEEEeqnarray*}
+}
+Some text\\
+after.
+\qed \\
+\vor \beh \bew
 \end{document}
